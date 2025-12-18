@@ -1,0 +1,26 @@
+/* Estilos para formularios e inputs */
+@layer components {
+  .input-texto {
+    @apply w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border-2 border-transparent focus:border-indigo-500 rounded-lg outline-none transition-all;
+  }
+  
+  .input-select {
+    @apply w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border-2 border-transparent focus:border-indigo-500 rounded-lg outline-none cursor-pointer;
+  }
+  
+  .label-formulario {
+    @apply block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300;
+  }
+  
+  .grupo-formulario {
+    @apply space-y-2;
+  }
+  
+  .contenedor-formulario {
+    @apply space-y-4;
+  }
+  
+  .fila-formulario {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+  }
+}

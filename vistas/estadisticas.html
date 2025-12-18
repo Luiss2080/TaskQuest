@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas - TaskQuest</title>
+    <link href="../estilos/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="fondo-gradiente">
+    
+    <!-- Navegación -->
+    <nav class="encabezado-app border-b border-gray-700">
+        <div class="flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-4 hover:opacity-80 transition-opacity">
+                <i class="fas fa-arrow-left text-2xl"></i>
+                <span class="text-xl">Volver</span>
+            </a>
+            <h1 class="text-2xl font-bold">📊 Estadísticas Detalladas</h1>
+        </div>
+    </nav>
+
+    <main class="contenedor-principal">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            
+            <!-- Progreso General -->
+            <div class="card">
+                <h2 class="text-2xl font-bold mb-4 flex items-center">
+                    <i class="fas fa-chart-line mr-3 text-indigo-500"></i>
+                    Progreso General
+                </h2>
+                <div class="space-y-4">
+                    <div class="p-4 bg-gradient-to-r from-indigo-500/20 to-purple-600/20 rounded-lg">
+                        <div class="text-sm opacity-75">Nivel Actual</div>
+                        <div id="stats-nivel" class="text-4xl font-bold text-indigo-500">1</div>
+                    </div>
+                    <div class="p-4 bg-gradient-to-r from-green-500/20 to-emerald-600/20 rounded-lg">
+                        <div class="text-sm opacity-75">XP Total Acumulado</div>
+                        <div id="stats-xp-total" class="text-4xl font-bold text-green-500">0</div>
+                    </div>
+                    <div class="p-4 bg-gradient-to-r from-yellow-500/20 to-orange-600/20 rounded-lg">
+                        <div class="text-sm opacity-75">Tareas Completadas</div>
+                        <div id="stats-tareas-completadas" class="text-4xl font-bold text-yellow-500">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rachas y Logros -->
+            <div class="card">
+                <h2 class="text-2xl font-bold mb-4 flex items-center">
+                    <i class="fas fa-fire mr-3 text-orange-500"></i>
+                    Rachas y Récords
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
+                        <span class="opacity-75">Racha Actual</span>
+                        <span id="stats-racha-actual" class="text-2xl font-bold text-orange-500">0 días</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
+                        <span class="opacity-75">Tareas Hoy</span>
+                        <span id="stats-tareas-hoy" class="text-2xl font-bold text-blue-500">0</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
+                        <span class="opacity-75">Quests Diarias Completadas</span>
+                        <span id="stats-quests-diarias" class="text-2xl font-bold text-purple-500">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estadísticas por Dificultad -->
+            <div class="card">
+                <h2 class="text-2xl font-bold mb-4 flex items-center">
+                    <i class="fas fa-star mr-3 text-yellow-500"></i>
+                    Por Dificultad
+                </h2>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span>⭐ Fácil</span>
+                        <span id="stats-facil" class="font-bold text-green-500">0</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>⭐⭐ Media</span>
+                        <span id="stats-media" class="font-bold text-blue-500">0</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>⭐⭐⭐ Difícil</span>
+                        <span id="stats-dificil" class="font-bold text-purple-500">0</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>⭐⭐⭐⭐ Épica</span>
+                        <span id="stats-epica" class="font-bold text-orange-500">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estadísticas por Categoría -->
+            <div class="card">
+                <h2 class="text-2xl font-bold mb-4 flex items-center">
+                    <i class="fas fa-tags mr-3 text-pink-500"></i>
+                    Por Categoría
+                </h2>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span>💼 Trabajo</span>
+                        <span id="stats-trabajo" class="font-bold">0</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>📚 Estudio</span>
+                        <span id="stats-estudio" class="font-bold">0</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>❤️ Salud</span>
+                        <span id="stats-salud" class="font-bold">0</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>🎯 Personal</span>
+                        <span id="stats-personal" class="font-bold">0</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>📌 Otros</span>
+                        <span id="stats-otros" class="font-bold">0</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script type="module">
+        import { ServicioAlmacenamiento } from '../js/utilidades/almacenamiento.js';
+        import { CLAVES_ALMACENAMIENTO } from '../js/utilidades/constantes.js';
+
+        // Cargar y mostrar estadísticas
+        document.addEventListener('DOMContentLoaded', () => {
+            const datosJugador = ServicioAlmacenamiento.cargar(CLAVES_ALMACENAMIENTO.JUGADOR, {});
+            const datosTareas = ServicioAlmacenamiento.cargar(CLAVES_ALMACENAMIENTO.TAREAS, []);
+            const datosQuest = ServicioAlmacenamiento.cargar(CLAVES_ALMACENAMIENTO.QUEST_DIARIA, {});
+
+            // Estadísticas generales
+            document.getElementById('stats-nivel').textContent = datosJugador.nivel || 1;
+            document.getElementById('stats-xp-total').textContent = datosJugador.xpTotal || 0;
+            document.getElementById('stats-tareas-completadas').textContent = datosJugador.tareasCompletadas || 0;
+            document.getElementById('stats-racha-actual').textContent = `${datosJugador.racha || 0} días`;
+            document.getElementById('stats-tareas-hoy').textContent = datosJugador.tareasHoy || 0;
+            document.getElementById('stats-quests-diarias').textContent = datosQuest.vecesCompletada || 0;
+
+            // Estadísticas por dificultad
+            const porDificultad = { facil: 0, media: 0, dificil: 0, epica: 0 };
+            const porCategoria = { trabajo: 0, estudio: 0, salud: 0, personal: 0, otros: 0 };
+
+            datosTareas.forEach(tarea => {
+                if (tarea.completada) {
+                    if (porDificultad[tarea.dificultad] !== undefined) {
+                        porDificultad[tarea.dificultad]++;
+                    }
+                    if (porCategoria[tarea.categoria] !== undefined) {
+                        porCategoria[tarea.categoria]++;
+                    }
+                }
+            });
+
+            document.getElementById('stats-facil').textContent = porDificultad.facil;
+            document.getElementById('stats-media').textContent = porDificultad.media;
+            document.getElementById('stats-dificil').textContent = porDificultad.dificil;
+            document.getElementById('stats-epica').textContent = porDificultad.epica;
+
+            document.getElementById('stats-trabajo').textContent = porCategoria.trabajo;
+            document.getElementById('stats-estudio').textContent = porCategoria.estudio;
+            document.getElementById('stats-salud').textContent = porCategoria.salud;
+            document.getElementById('stats-personal').textContent = porCategoria.personal;
+            document.getElementById('stats-otros').textContent = porCategoria.otros;
+        });
+    </script>
+    
+</body>
+</html>

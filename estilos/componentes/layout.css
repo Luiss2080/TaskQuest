@@ -1,0 +1,34 @@
+/* Estilos de layout y estructura */
+@layer components {
+  .contenedor-principal {
+    @apply container mx-auto px-4 py-8;
+  }
+  
+  .encabezado-app {
+    @apply container mx-auto px-4 py-6;
+  }
+  
+  .grid-layout {
+    @apply grid grid-cols-1 lg:grid-cols-3 gap-6;
+  }
+  
+  .columna-principal {
+    @apply lg:col-span-2;
+  }
+  
+  .columna-lateral {
+    @apply space-y-6;
+  }
+  
+  .seccion-espaciada {
+    @apply space-y-6;
+  }
+  
+  .lista-items {
+    @apply space-y-3;
+  }
+  
+  .fondo-gradiente {
+    @apply bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen text-white;
+  }
+}

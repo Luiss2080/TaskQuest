@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskQuest - Convierte tus tareas en misiones</title>
+    
+    <!-- Tailwind CSS -->
+    <link href="../estilos/output.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="fondo-gradiente">
+    
+    <!-- Encabezado -->
+    <header id="encabezado-app" class="encabezado-app">
+        <!-- Menú de navegación superior -->
+        <div class="flex justify-end gap-3 mb-4">
+            <a href="estadisticas.html" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-all" title="Estadísticas">
+                <i class="fas fa-chart-bar mr-2"></i>Estadísticas
+            </a>
+            <a href="ayuda.html" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg transition-all" title="Ayuda">
+                <i class="fas fa-question-circle mr-2"></i>Ayuda
+            </a>
+            <a href="configuracion.html" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-all" title="Configuración">
+                <i class="fas fa-cog mr-2"></i>Config
+            </a>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal -->
+    <main class="contenedor-principal">
+        <div class="grid-layout">
+            
+            <!-- Columna Principal -->
+            <div class="columna-principal seccion-espaciada">
+                
+                <!-- Formulario de Nueva Tarea -->
+                <div id="formulario-container"></div>
+                
+                <!-- Lista de Tareas -->
+                <div id="lista-tareas-container"></div>
+                
+            </div>
+            
+            <!-- Barra Lateral -->
+            <div class="columna-lateral">
+                
+                <!-- Panel de Estadísticas del Jugador -->
+                <div id="panel-estadisticas"></div>
+                
+                <!-- Quest Diaria -->
+                <div id="quest-diaria-container"></div>
+                
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script type="module" src="../js/principal.js"></script>
+    
+</body>
+</html>

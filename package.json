@@ -1,0 +1,24 @@
+{
+  "name": "taskquest",
+  "version": "1.0.0",
+  "description": "TaskQuest - Convierte tus tareas en misiones",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tailwindcss -i ./estilos/principal.css -o ./estilos/output.css --watch",
+    "build": "tailwindcss -i ./estilos/principal.css -o ./estilos/output.css --minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["todo", "gamification", "tasks", "productivity"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18"
+  },
+  "dependencies": {
+    "animejs": "^4.2.2"
+  }
+}

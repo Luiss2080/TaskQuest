@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Importar todos los componentes de estilos */
+@import "./componentes/botones.css";
+@import "./componentes/tarjetas.css";
+@import "./componentes/formularios.css";
+@import "./componentes/animaciones.css";
+@import "./componentes/barras-progreso.css";
+@import "./componentes/modal.css";
+@import "./componentes/layout.css";

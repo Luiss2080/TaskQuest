@@ -1,0 +1,22 @@
+/* Estilos para barras de progreso */
+@layer components {
+  .barra-progreso {
+    @apply h-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full transition-all duration-500;
+  }
+  
+  .contenedor-barra-progreso {
+    @apply bg-gray-700 rounded-full h-4 overflow-hidden;
+  }
+  
+  .barra-progreso-xp {
+    @apply h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full transition-all duration-500 ease-out;
+  }
+  
+  .barra-progreso-diaria {
+    @apply h-full bg-yellow-400 rounded-full transition-all duration-500;
+  }
+  
+  .barra-progreso-pequena {
+    @apply h-3 rounded-full overflow-hidden;
+  }
+}

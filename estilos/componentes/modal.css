@@ -1,0 +1,34 @@
+/* Estilos para modales y notificaciones */
+@layer components {
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/80 z-50 items-center justify-center;
+  }
+  
+  .modal-contenido {
+    @apply bg-gradient-to-br from-indigo-500 to-purple-600 p-8 rounded-2xl text-center max-w-md;
+  }
+  
+  .modal-titulo {
+    @apply text-4xl font-bold mb-4;
+  }
+  
+  .modal-nivel {
+    @apply text-6xl font-bold mb-4;
+  }
+  
+  .notificacion {
+    @apply fixed top-20 right-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-6 py-4 rounded-lg shadow-lg z-50;
+  }
+  
+  .notificacion-exito {
+    @apply bg-gradient-to-r from-green-400 to-emerald-500;
+  }
+  
+  .notificacion-info {
+    @apply bg-gradient-to-r from-blue-400 to-indigo-500;
+  }
+  
+  .notificacion-error {
+    @apply bg-gradient-to-r from-red-400 to-rose-500;
+  }
+}
