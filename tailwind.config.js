@@ -1,23 +1,25 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  darkMode: 'class',
+export default {
   content: [
-    "./vistas/**/*.html",
-    "./js/**/*.js",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        primary: '#6366f1',
-        secondary: '#8b5cf6',
-        accent: '#ec4899',
-        dark: '#1e293b',
-        light: '#f1f5f9',
+        quest: {
+          dark: '#0f172a',
+          card: '#1e293b',
+          primary: '#6366f1',
+          secondary: '#ec4899',
+          accent: '#f59e0b',
+        }
       },
       fontFamily: {
-        gaming: ['"Press Start 2P"', 'cursive'],
         sans: ['Inter', 'sans-serif'],
-      },
+        gaming: ['"Press Start 2P"', 'cursive'],
+      }
     },
   },
   plugins: [],
