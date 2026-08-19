@@ -22,6 +22,9 @@
     <header id="encabezado-app" class="encabezado-app">
         <!-- Menú de navegación superior -->
         <div class="flex justify-end gap-3 mb-4">
+            <button id="btn-tema" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg transition-all text-white" title="Cambiar Tema">
+                <i class="fas fa-moon"></i>
+            </button>
             <a href="estadisticas.html" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-all" title="Estadísticas">
                 <i class="fas fa-chart-bar mr-2"></i>Estadísticas
             </a>
@@ -55,8 +58,11 @@
                 <!-- Panel de Estadísticas del Jugador -->
                 <div id="panel-estadisticas"></div>
                 
+                <!-- Temporizador Pomodoro -->
+                <div id="pomodoro-container" class="mt-4"></div>
+                
                 <!-- Quest Diaria -->
-                <div id="quest-diaria-container"></div>
+                <div id="quest-diaria-container" class="mt-4"></div>
                 
             </div>
             
