@@ -259,6 +259,9 @@ export class Aplicacion {
         // Animación de nivel
         ServicioAnimaciones.animarNivelSubido('#jugador-nivel');
         ServicioAnimaciones.animarNivelSubido('#panel-nivel');
+        
+        // Sonido
+        motorSonidos.subirNivel();
     }
 
     /**
