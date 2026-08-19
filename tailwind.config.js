@@ -8,17 +8,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        'quest-dark': '#0f172a',
-        'quest-card': '#1e293b',
-        'quest-border': '#334155',
-        'quest-neon-cyan': '#06b6d4',
-        'quest-neon-pink': '#d946ef',
-        'quest-neon-green': '#22c55e',
+        'quest-dark': '#0b0f19',
+        'quest-card': '#111827',
+        'quest-border': '#1f2937',
+        'quest-neon-cyan': '#00f2fe',
+        'quest-neon-pink': '#fe0979',
+        'quest-neon-green': '#10b981',
         'quest-neon-yellow': '#f59e0b',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        gaming: ['"Press Start 2P"', 'cursive'],
+        sans: ['Outfit', 'sans-serif'],
+        gaming: ['"Space Grotesk"', 'sans-serif'],
       },
       boxShadow: {
         'neon-cyan': '0 0 10px theme("colors.quest-neon-cyan")',
