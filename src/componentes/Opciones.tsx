@@ -97,6 +97,21 @@ export default function Opciones() {
             Resetear
           </button>
         </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 items-center justify-between p-5 bg-black/20 rounded-3xl border border-white/5">
+          <div className="flex items-center gap-4">
+            <div className="p-3 bg-white/10 text-white/50 rounded-2xl">
+              <LogOut className="w-6 h-6" />
+            </div>
+            <div>
+              <h4 className="font-bold text-white/70">Cerrar Sesión</h4>
+              <p className="text-sm text-white/40">Vuelve a la pantalla de acceso.</p>
+            </div>
+          </div>
+          <button onClick={logout} className="w-full sm:w-auto px-6 py-3 bg-white/5 hover:bg-white/10 text-white/70 font-bold rounded-2xl transition-all border border-white/5">
+            Salir
+          </button>
+        </div>
       </div>
     </div>
   )
