@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 body {
-  /* Fondo gris claro como en la imagen de referencia */
-  @apply bg-zinc-300 text-rose-50 overflow-hidden h-screen w-screen flex items-center justify-center antialiased;
+  /* Fondo súper oscuro para que las "islas" resalten */
+  @apply bg-[#0c0a0b] text-rose-50 overflow-hidden h-screen w-screen flex antialiased m-0 p-0;
 }
 
 ::-webkit-scrollbar {
@@ -14,9 +14,9 @@ body {
   background-color: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
 }
