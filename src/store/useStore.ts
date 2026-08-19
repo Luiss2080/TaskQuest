@@ -27,6 +27,7 @@ export interface ToastMessage {
 }
 
 interface GameState {
+  user: string | null;
   tasks: Task[];
   xp: number;
   level: number;
@@ -37,6 +38,8 @@ interface GameState {
   inventory: InventoryItem[];
   toasts: ToastMessage[];
   
+  login: (username: string) => void;
+  logout: () => void;
   addTask: (text: string, difficulty: Task['difficulty']) => void;
   toggleTask: (id: string) => void;
   deleteTask: (id: string) => void;
@@ -55,6 +58,7 @@ interface GameState {
 const XP_MAP = { easy: 10, medium: 25, hard: 50, epic: 100 };
 
 const initialState = {
+  user: null,
   tasks: [],
   xp: 0,
   level: 1,
@@ -72,6 +76,15 @@ export const useStore = create<GameState>()(
       ...initialState,
       toasts: [], // Don't persist toasts
       
+      login: (username) => {
+        set({ user: username });
+        get().addToast(`Bienvenido de vuelta, ${username}`, 'success');
+      },
+      logout: () => {
+        set({ user: null });
+        get().addToast(`Sesión cerrada`, 'info');
+      },
+
       addToast: (message, type = 'info') => {
         const id = crypto.randomUUID();
         set((state) => ({ toasts: [...state.toasts, { id, message, type }] }));

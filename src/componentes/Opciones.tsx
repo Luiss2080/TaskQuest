@@ -1,8 +1,8 @@
 import { useStore } from '../store/useStore'
-import { Download, Upload, Power, Save } from 'lucide-react'
+import { Download, Upload, Power, Save, LogOut } from 'lucide-react'
 
 export default function Opciones() {
-  const { resetData, importData, addToast } = useStore()
+  const { resetData, importData, addToast, logout } = useStore()
 
   const handleExport = () => {
     const data = localStorage.getItem('taskquest-modern-storage')

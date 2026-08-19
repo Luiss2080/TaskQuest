@@ -10,8 +10,11 @@ import Temporizador from './componentes/Temporizador'
 import Logros from './componentes/Logros'
 import Opciones from './componentes/Opciones'
 import ContenedorNotificaciones from './componentes/ContenedorNotificaciones'
+import Auth from './componentes/Auth'
+import { useStore } from './store/useStore'
 
 export default function Aplicacion() {
+  const { user } = useStore()
   const [pestanaActiva, setPestanaActiva] = useState('misiones')
 
   const menu = [
@@ -22,6 +25,13 @@ export default function Aplicacion() {
     { id: 'logros', icon: <Trophy className="w-6 h-6" />, tooltip: 'Logros' },
     { id: 'opciones', icon: <Settings className="w-6 h-6" />, tooltip: 'Opciones' },
   ]
+
+  if (!user) return (
+    <>
+      <ContenedorNotificaciones />
+      <Auth />
+    </>
+  )
 
   return (
     <div className="w-screen h-screen flex gap-4 md:gap-6 p-4 md:p-6 overflow-hidden relative">
@@ -63,7 +73,7 @@ export default function Aplicacion() {
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-white/5 to-transparent pointer-events-none"></div>
           <div>
             <h1 className="text-xl md:text-3xl font-bold text-white tracking-wide">
-              Buenas tardes, <span className="text-rose-400">JUGADOR</span>
+              Buenas tardes, <span className="text-rose-400 uppercase">{user}</span>
             </h1>
           </div>
           <div className="flex items-center gap-4 md:gap-6 z-10">
