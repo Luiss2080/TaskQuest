@@ -1,0 +1,21 @@
+{
+  "name": "TaskQuest",
+  "short_name": "TaskQuest",
+  "description": "Convierte tus tareas aburridas en misiones épicas de RPG.",
+  "start_url": "./vistas/index.html",
+  "display": "standalone",
+  "background_color": "#1e293b",
+  "theme_color": "#6366f1",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/860/860454.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/860/860454.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

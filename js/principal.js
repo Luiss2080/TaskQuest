@@ -85,6 +85,7 @@ export class Aplicacion {
         this.componenteListaTareas = new ComponenteListaTareas('lista-tareas-container');
         this.componentePanelEstadisticas = new ComponentePanelEstadisticas('panel-estadisticas');
         this.componenteQuestDiaria = new ComponenteQuestDiaria('quest-diaria-container');
+        this.componentePomodoro = new ComponentePomodoro('pomodoro-container', this.controladorPomodoro);
         this.componenteModal = new ComponenteModal();
 
         // Renderizar componentes iniciales
@@ -92,6 +93,7 @@ export class Aplicacion {
         this.componenteFormulario.renderizar();
         this.componentePanelEstadisticas.renderizar();
         this.componenteQuestDiaria.renderizar();
+        this.componentePomodoro.renderizar();
     }
 
     /**
@@ -142,6 +144,23 @@ export class Aplicacion {
 
         this.componenteListaTareas.alLimpiar(() => {
             this.manejarLimpiarCompletadas();
+        });
+
+        // Eventos Pomodoro
+        document.addEventListener('pomodoroCompletado', (e) => {
+            const xp = e.detail.xp;
+            const subioNivel = this.controladorJugador.agregarXP(xp);
+            motorSonidos.tareaCompletada();
+            
+            if (subioNivel) {
+                setTimeout(() => this.manejarNivelSubido(), 500);
+            }
+            ComponenteNotificaciones.mostrar(`Pomodoro Completado: +${xp} XP`, 'exito', 3000);
+        });
+
+        document.addEventListener('descansoCompletado', () => {
+            motorSonidos.tareaCompletada();
+            ComponenteNotificaciones.mostrar('Descanso terminado, listo para la acción', 'info', 3000);
         });
     }
 
