@@ -24,9 +24,8 @@ export default function ListaMisiones() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full">
-      {/* Columna Izquierda: Formulario (ocupa 1 columna) */}
       <div className="lg:col-span-1 space-y-6">
-        <div className="bento-card bg-bento-sidebar/30">
+        <div className="bg-rose-900 rounded-[2rem] p-6 shadow-xl border border-white/5">
           <h2 className="text-xl font-bold mb-4 text-white">Nueva Partida</h2>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <input
@@ -34,7 +33,7 @@ export default function ListaMisiones() {
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="¿Qué misión cumplirás?"
-              className="w-full p-4 bg-bento-window border border-white/10 rounded-2xl focus:border-bento-accent outline-none text-white placeholder-white/30"
+              className="w-full p-4 bg-rose-950 border border-white/10 rounded-2xl focus:border-rose-500 outline-none text-white placeholder-white/30"
             />
             <div className="grid grid-cols-2 gap-2">
               {(Object.keys(difficultyConfig) as Task['difficulty'][]).map(diff => (
@@ -49,15 +48,14 @@ export default function ListaMisiones() {
                 </button>
               ))}
             </div>
-            <button type="submit" className="bento-btn py-4 mt-2">
+            <button type="submit" className="relative mt-2 py-4 px-6 bg-rose-500 text-white font-bold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(244,63,94,0.4)] flex items-center justify-center gap-2">
               <Plus className="w-5 h-5" /> Añadir
             </button>
           </form>
         </div>
       </div>
 
-      {/* Columna Derecha: Lista de Tareas (ocupa 2 columnas) */}
-      <div className="lg:col-span-2 bento-card bg-bento-sidebar/30 flex flex-col">
+      <div className="lg:col-span-2 bg-rose-900 rounded-[2rem] p-6 shadow-xl border border-white/5 flex flex-col">
         <h2 className="text-xl font-bold mb-4 text-white">Misiones Activas</h2>
         <div className="flex-1 overflow-y-auto pr-2 space-y-3">
           <AnimatePresence>
@@ -75,12 +73,12 @@ export default function ListaMisiones() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9, height: 0, margin: 0 }}
-                    className={`bg-bento-window border border-white/5 p-4 rounded-2xl flex items-center gap-4 transition-all ${task.completed ? 'opacity-40 grayscale' : 'hover:border-white/20'}`}
+                    className={`bg-rose-950 border border-white/5 p-4 rounded-2xl flex items-center gap-4 transition-all ${task.completed ? 'opacity-40 grayscale' : 'hover:border-white/20'}`}
                   >
                     <button
                       onClick={() => toggleTask(task.id)}
                       className={`w-10 h-10 rounded-xl flex items-center justify-center border-2 flex-shrink-0 transition-all
-                        ${task.completed ? 'bg-bento-accent border-bento-accent text-white' : 'border-white/20 text-transparent hover:border-bento-accent hover:text-bento-accent'}`}
+                        ${task.completed ? 'bg-rose-500 border-rose-500 text-white' : 'border-white/20 text-transparent hover:border-rose-500 hover:text-rose-500'}`}
                     >
                       <Check className="w-6 h-6" />
                     </button>

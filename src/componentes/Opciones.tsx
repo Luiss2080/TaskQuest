@@ -49,10 +49,10 @@ export default function Opciones() {
         <p className="text-white/50">Gestiona tu archivo de guardado y opciones.</p>
       </div>
 
-      <div className="bento-card bg-bento-sidebar border-white/5 space-y-6">
+      <div className="bg-rose-900 rounded-[2rem] p-6 shadow-xl border border-white/5 space-y-6">
         <h3 className="text-xl font-bold text-white border-b border-white/10 pb-4">Gestión de Datos</h3>
         
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-between p-5 bg-bento-window rounded-3xl border border-white/5">
+        <div className="flex flex-col sm:flex-row gap-4 items-center justify-between p-5 bg-rose-950 rounded-3xl border border-white/5">
           <div className="flex items-center gap-4">
             <div className="p-3 bg-blue-500/20 text-blue-400 rounded-2xl">
               <Save className="w-6 h-6" />
@@ -67,7 +67,7 @@ export default function Opciones() {
           </button>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-between p-5 bg-bento-window rounded-3xl border border-white/5">
+        <div className="flex flex-col sm:flex-row gap-4 items-center justify-between p-5 bg-rose-950 rounded-3xl border border-white/5">
           <div className="flex items-center gap-4">
             <div className="p-3 bg-green-500/20 text-green-400 rounded-2xl">
               <Upload className="w-6 h-6" />
@@ -83,17 +83,17 @@ export default function Opciones() {
           </label>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-between p-5 bg-bento-accent/10 border border-bento-accent/30 rounded-3xl mt-12">
+        <div className="flex flex-col sm:flex-row gap-4 items-center justify-between p-5 bg-rose-500/10 border border-rose-500/30 rounded-3xl mt-12">
           <div className="flex items-center gap-4">
-            <div className="p-3 bg-bento-accent text-white rounded-2xl shadow-lg">
+            <div className="p-3 bg-rose-500 text-white rounded-2xl shadow-lg">
               <Power className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-bold text-bento-accent">Borrar Datos (Hard Reset)</h4>
-              <p className="text-sm text-bento-accent/70">Pierdes todo de forma permanente.</p>
+              <h4 className="font-bold text-rose-500">Borrar Datos (Hard Reset)</h4>
+              <p className="text-sm text-rose-500/70">Pierdes todo de forma permanente.</p>
             </div>
           </div>
-          <button onClick={handleReset} className="w-full sm:w-auto px-6 py-3 bg-bento-accent hover:bg-red-500 text-white font-bold rounded-2xl transition-all shadow-[0_0_20px_rgba(255,71,87,0.3)]">
+          <button onClick={handleReset} className="w-full sm:w-auto px-6 py-3 bg-rose-500 hover:bg-red-600 text-white font-bold rounded-2xl transition-all shadow-[0_0_20px_rgba(244,63,94,0.3)]">
             Resetear
           </button>
         </div>

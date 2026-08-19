@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { LayoutGrid, Target, ShoppingBag, Backpack, Trophy, Settings, Search, Bell, Menu } from 'lucide-react'
+import { LayoutGrid, Target, ShoppingBag, Backpack, Trophy, Settings, Search, Bell, Menu, Timer as TimerIcon } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 import PanelPersonaje from './componentes/PanelPersonaje'
@@ -24,13 +24,13 @@ export default function Aplicacion() {
   ]
 
   return (
-    <div className="w-[98vw] h-[96vh] md:w-[95vw] md:h-[90vh] bg-bento-window rounded-4xl md:rounded-5xl shadow-2xl flex overflow-hidden border border-white/10 relative">
+    <div className="w-[98vw] h-[96vh] md:w-[95vw] md:h-[90vh] bg-rose-950 rounded-[2.5rem] shadow-2xl flex overflow-hidden border border-white/10 relative">
       <ContenedorNotificaciones />
       
       {/* Sidebar Compacto */}
-      <aside className="w-20 bg-bento-sidebar flex flex-col items-center py-8 justify-between border-r border-white/5 z-20">
+      <aside className="w-20 bg-rose-950/80 flex flex-col items-center py-8 justify-between border-r border-white/5 z-20">
         <div className="flex flex-col gap-8">
-          <div className="p-3 bg-bento-accent rounded-2xl shadow-[0_0_20px_rgba(255,71,87,0.4)]">
+          <div className="p-3 bg-rose-500 rounded-2xl shadow-[0_0_20px_rgba(244,63,94,0.4)]">
             <LayoutGrid className="w-6 h-6 text-white" />
           </div>
           <div className="flex flex-col gap-4">
@@ -38,18 +38,18 @@ export default function Aplicacion() {
               <button
                 key={item.id}
                 onClick={() => setPestanaActiva(item.id)}
-                className={`sidebar-icon group relative ${pestanaActiva === item.id ? 'active' : ''}`}
+                className={`p-3 rounded-2xl transition-all duration-300 cursor-pointer group relative ${pestanaActiva === item.id ? 'bg-rose-500 text-white shadow-[0_0_15px_rgba(244,63,94,0.5)]' : 'text-rose-200 hover:bg-white/10 hover:text-white'}`}
                 title={item.tooltip}
               >
                 {item.icon}
-                <span className="absolute left-14 bg-white text-black px-2 py-1 rounded-md text-xs font-bold opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity">
+                <span className="absolute left-14 bg-white text-rose-950 px-2 py-1 rounded-md text-xs font-bold opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-50">
                   {item.tooltip}
                 </span>
               </button>
             ))}
           </div>
         </div>
-        <button className="sidebar-icon">
+        <button className="p-3 rounded-2xl text-rose-200 hover:bg-white/10 hover:text-white transition-all">
           <Menu className="w-6 h-6" />
         </button>
       </aside>
@@ -59,21 +59,20 @@ export default function Aplicacion() {
         {/* Top Header */}
         <header className="h-24 px-8 flex justify-between items-center z-10">
           <div>
-            <h1 className="text-2xl font-gaming font-bold text-white">
-              Buenas tardes, <span className="text-bento-accent">JUGADOR</span>
+            <h1 className="text-2xl font-bold text-white tracking-wide">
+              Buenas tardes, <span className="text-rose-400">JUGADOR</span>
             </h1>
-            <p className="text-bento-muted text-sm">Tu aventura de productividad continúa.</p>
           </div>
           <div className="flex items-center gap-6">
-            <div className="hidden md:flex bg-bento-card px-4 py-2 rounded-full items-center gap-2 border border-white/10">
-              <Search className="w-4 h-4 text-bento-muted" />
-              <input type="text" placeholder="Buscar..." className="bg-transparent border-none outline-none text-sm text-white placeholder-bento-muted/50 w-32" />
+            <div className="hidden md:flex bg-rose-900 px-4 py-2 rounded-full items-center gap-2 border border-white/10">
+              <Search className="w-4 h-4 text-rose-300" />
+              <input type="text" placeholder="Buscar..." className="bg-transparent border-none outline-none text-sm text-white placeholder-rose-300/50 w-32" />
             </div>
-            <button className="relative p-2 rounded-full bg-bento-card border border-white/10 hover:bg-white/10 transition-colors">
-              <Bell className="w-5 h-5 text-bento-muted" />
-              <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-bento-accent rounded-full border-2 border-bento-window"></span>
+            <button className="relative p-2 rounded-full bg-rose-900 border border-white/10 hover:bg-white/10 transition-colors">
+              <Bell className="w-5 h-5 text-rose-300" />
+              <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-rose-500 rounded-full border-2 border-rose-950"></span>
             </button>
-            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" className="w-10 h-10 bg-white/10 rounded-full border-2 border-bento-accent" />
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" className="w-10 h-10 bg-white/10 rounded-full border-2 border-rose-500" />
           </div>
         </header>
 
@@ -81,7 +80,7 @@ export default function Aplicacion() {
         <div className="flex-1 overflow-y-auto px-8 pb-8 flex flex-col gap-6">
           <PanelPersonaje />
           
-          <div className="flex-1 bg-bento-sidebar/50 rounded-4xl p-6 border border-white/5">
+          <div className="flex-1 bg-rose-950/40 rounded-[2rem] p-6 border border-white/5">
             <AnimatePresence mode="wait">
               <motion.div
                 key={pestanaActiva}
@@ -104,8 +103,4 @@ export default function Aplicacion() {
       </main>
     </div>
   )
-}
-
-function TimerIcon(props: any) {
-  return <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
 }

@@ -47,10 +47,9 @@ export default function Tienda() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {/* Formulario Añadir */}
-        <div className="bento-card border-dashed border-2 border-white/20 bg-transparent flex flex-col justify-center">
+        <div className="bg-transparent border-dashed border-2 border-white/20 rounded-[2rem] p-6 flex flex-col justify-center">
           <h3 className="font-bold text-white mb-4 flex items-center gap-2">
-            <Plus className="w-5 h-5 text-bento-accent" /> Nuevo Ítem
+            <Plus className="w-5 h-5 text-rose-500" /> Nuevo Ítem
           </h3>
           <form onSubmit={addReward} className="flex flex-col gap-3">
             <input
@@ -68,7 +67,7 @@ export default function Tienda() {
                 onChange={(e) => setNewCost(Number(e.target.value))}
                 className="w-full p-3 bg-white/5 border border-white/10 rounded-xl outline-none text-white text-sm"
               />
-              <button type="submit" className="bento-btn py-3 px-4 rounded-xl">
+              <button type="submit" className="py-3 px-4 bg-rose-500 hover:scale-105 transition-transform text-white rounded-xl shadow-[0_0_15px_rgba(244,63,94,0.4)]">
                 <Plus className="w-5 h-5" />
               </button>
             </div>
@@ -76,14 +75,14 @@ export default function Tienda() {
         </div>
 
         {customRewards.map((reward) => (
-          <motion.div whileHover={{ y: -5 }} key={reward.id} className="bento-card bg-bento-sidebar flex flex-col items-center text-center relative group">
+          <motion.div whileHover={{ y: -5 }} key={reward.id} className="bg-rose-900 rounded-[2rem] p-6 shadow-xl border border-white/5 flex flex-col items-center text-center relative group">
             <button 
               onClick={() => setCustomRewards(customRewards.filter(r => r.id !== reward.id))}
-              className="absolute top-4 right-4 p-2 text-white/30 hover:text-bento-accent opacity-0 group-hover:opacity-100 transition-opacity bg-black/20 rounded-full"
+              className="absolute top-4 right-4 p-2 text-white/30 hover:text-rose-500 opacity-0 group-hover:opacity-100 transition-opacity bg-black/20 rounded-full"
             >
               <Trash2 className="w-4 h-4" />
             </button>
-            <div className="text-bento-accent mb-4 bg-bento-window p-4 rounded-3xl border border-white/5">
+            <div className="text-rose-500 mb-4 bg-rose-950 p-4 rounded-3xl border border-white/5">
               {renderIcon(reward.icon)}
             </div>
             <h3 className="font-bold text-lg text-white mb-6 leading-tight">{reward.title}</h3>
@@ -92,7 +91,7 @@ export default function Tienda() {
               <button 
                 onClick={() => handleBuy(reward)}
                 disabled={coins < reward.cost}
-                className={`w-full py-3 rounded-2xl font-bold flex justify-center items-center gap-2 transition-all ${coins >= reward.cost ? 'bg-white text-bento-sidebar hover:scale-105' : 'bg-white/5 text-white/30 cursor-not-allowed'}`}
+                className={`w-full py-3 rounded-2xl font-bold flex justify-center items-center gap-2 transition-all ${coins >= reward.cost ? 'bg-white text-rose-950 hover:scale-105 shadow-xl' : 'bg-white/5 text-white/30 cursor-not-allowed'}`}
               >
                 Comprar <span className="opacity-80 text-sm">{reward.cost} CR</span>
               </button>

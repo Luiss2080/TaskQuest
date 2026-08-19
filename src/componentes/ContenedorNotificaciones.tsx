@@ -19,7 +19,7 @@ export default function ContenedorNotificaciones() {
       case 'success': return 'border-green-400/50 shadow-[0_0_20px_rgba(74,222,128,0.2)]'
       case 'error': return 'border-red-500/50 shadow-[0_0_20px_rgba(239,68,68,0.2)]'
       case 'levelUp': return 'border-yellow-400 shadow-[0_0_30px_rgba(250,204,21,0.4)]'
-      default: return 'border-blue-400/50 shadow-[0_0_20px_rgba(96,165,250,0.2)]'
+      default: return 'border-blue-400/50 shadow-[0_0_20px_rgba(59,130,246,0.2)]'
     }
   }
 
@@ -32,7 +32,7 @@ export default function ContenedorNotificaciones() {
             initial={{ opacity: 0, x: 50, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-            className={`pointer-events-auto flex items-center gap-4 bg-bento-window/95 backdrop-blur-xl p-5 rounded-2xl border-2 ${getBorder(toast.type)} min-w-[300px] cursor-pointer`}
+            className={`pointer-events-auto flex items-center gap-4 bg-rose-950/95 backdrop-blur-xl p-5 rounded-2xl border-2 ${getBorder(toast.type)} min-w-[300px] cursor-pointer`}
             onClick={() => removeToast(toast.id)}
           >
             <div className="bg-white/10 p-2 rounded-xl">

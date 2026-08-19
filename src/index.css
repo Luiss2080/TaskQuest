@@ -2,36 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    @apply antialiased bg-bento-bg text-bento-text overflow-hidden h-screen w-screen flex items-center justify-center;
-  }
-}
-
-@layer components {
-  .bento-card {
-    @apply bg-bento-card rounded-4xl p-6 shadow-xl border border-white/5 transition-all duration-300;
-  }
-  
-  .bento-btn {
-    @apply relative overflow-hidden bg-bento-accent text-white font-bold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,71,87,0.4)] flex items-center justify-center gap-2;
-  }
-
-  .sidebar-icon {
-    @apply p-3 rounded-2xl text-bento-muted hover:bg-white/10 hover:text-white transition-all duration-300 cursor-pointer;
-  }
-  
-  .sidebar-icon.active {
-    @apply bg-bento-accent text-white shadow-[0_0_15px_rgba(255,71,87,0.5)];
-  }
+body {
+  /* Fondo gris claro como en la imagen de referencia */
+  @apply bg-zinc-300 text-rose-50 overflow-hidden h-screen w-screen flex items-center justify-center antialiased;
 }
 
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-transparent;
+  background-color: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-white/20 rounded-full hover:bg-white/30;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
