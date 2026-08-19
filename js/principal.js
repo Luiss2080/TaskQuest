@@ -11,6 +11,8 @@ import { ComponenteModal } from './componentes/ComponenteModal.js';
 import { ComponenteNotificaciones } from './componentes/ComponenteNotificaciones.js';
 import { ServicioAnimaciones } from './utilidades/animaciones.js';
 import { motorSonidos } from './utilidades/ServicioSonidos.js';
+import { ControladorPomodoro } from './controladores/ControladorPomodoro.js';
+import { ComponentePomodoro } from './componentes/ComponentePomodoro.js';
 
 export class Aplicacion {
     constructor() {
@@ -18,6 +20,7 @@ export class Aplicacion {
         this.controladorTareas = new ControladorTareas();
         this.controladorJugador = new ControladorJugador();
         this.controladorQuestDiaria = new ControladorQuestDiaria();
+        this.controladorPomodoro = new ControladorPomodoro();
 
         // Componentes
         this.componenteEncabezado = null;
@@ -26,6 +29,7 @@ export class Aplicacion {
         this.componentePanelEstadisticas = null;
         this.componenteQuestDiaria = null;
         this.componenteModal = null;
+        this.componentePomodoro = null;
     }
 
     /**
