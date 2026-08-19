@@ -1,76 +1,63 @@
 import { useState, useEffect } from 'react'
-import { Store, Sword, Trophy, Moon, Sun } from 'lucide-react'
-import { useStore } from './store/useStore'
+import { Store, Trophy, Timer, Medal } from 'lucide-react'
 import TaskList from './components/TaskList'
 import Shop from './components/Shop'
+import CharacterPanel from './components/CharacterPanel'
 
 function App() {
-  const [activeTab, setActiveTab] = useState<'tasks' | 'shop'>('tasks')
-  const [darkMode, setDarkMode] = useState(true)
-  const { level, xp, coins } = useStore()
+  const [activeTab, setActiveTab] = useState<'tasks' | 'shop' | 'pomodoro' | 'achievements'>('tasks')
 
   useEffect(() => {
-    if (darkMode) document.documentElement.classList.add('dark')
-    else document.documentElement.classList.remove('dark')
-  }, [darkMode])
-
-  const xpRequired = level * 100;
-  const progress = (xp / xpRequired) * 100;
+    document.documentElement.classList.add('dark')
+  }, [])
 
   return (
-    <div className="min-h-screen pb-12">
-      <header className="sticky top-0 z-50 bg-white/80 dark:bg-quest-card/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 p-4">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-3">
-            <Sword className="text-quest-secondary w-8 h-8" />
-            <h1 className="text-2xl font-gaming text-quest-primary tracking-tighter">TaskQuest</h1>
-          </div>
-          
-          <div className="flex items-center gap-6">
-            <div className="text-center">
-              <div className="text-xs text-gray-500 font-bold uppercase tracking-wider">Nivel</div>
-              <div className="text-xl font-bold text-quest-secondary">{level}</div>
-            </div>
-            
-            <div className="w-32 sm:w-48">
-              <div className="flex justify-between text-xs mb-1 font-bold">
-                <span className="text-gray-500">XP</span>
-                <span className="text-quest-primary">{xp} / {xpRequired}</span>
-              </div>
-              <div className="h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
-                <div className="h-full bg-quest-primary transition-all duration-500" style={{ width: `${progress}%` }} />
-              </div>
-            </div>
-
-            <div className="text-center bg-yellow-100 dark:bg-yellow-900/30 px-3 py-1 rounded-lg">
-              <div className="text-xs text-yellow-600 dark:text-yellow-500 font-bold uppercase tracking-wider">Monedas</div>
-              <div className="text-lg font-bold text-yellow-600 dark:text-yellow-400">{coins}</div>
-            </div>
-
-            <button onClick={() => setDarkMode(!darkMode)} className="p-2 bg-gray-100 dark:bg-gray-800 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-              {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
-          </div>
+    <div className="min-h-screen pb-12 font-sans relative">
+      <div className="crt-overlay"></div>
+      
+      <header className="border-b border-quest-border bg-quest-dark/80 backdrop-blur-md p-4 sticky top-0 z-40 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+        <div className="max-w-5xl mx-auto flex items-center justify-center">
+          <h1 className="text-3xl font-gaming text-transparent bg-clip-text bg-gradient-to-r from-quest-neonCyan to-quest-neonPink tracking-tighter" style={{ textShadow: '0 0 10px rgba(0,243,255,0.5)' }}>
+            TASK_QUEST OS v3.0
+          </h1>
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto p-4 mt-6">
-        <div className="flex gap-2 mb-8 bg-gray-200 dark:bg-gray-800 p-1 rounded-xl w-full max-w-sm mx-auto">
+      <main className="max-w-5xl mx-auto p-4 mt-6 relative z-10">
+        
+        <CharacterPanel />
+
+        <div className="flex flex-wrap gap-2 mb-8 bg-black/50 border border-quest-border p-1 w-full mx-auto">
           <button 
             onClick={() => setActiveTab('tasks')}
-            className={`flex-1 py-2 px-4 rounded-lg font-bold transition-all flex items-center justify-center gap-2 ${activeTab === 'tasks' ? 'bg-white dark:bg-quest-card shadow-sm text-quest-primary' : 'text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'}`}
+            className={`tab-btn ${activeTab === 'tasks' ? 'active' : ''}`}
           >
-            <Trophy className="w-4 h-4" /> Misiones
+            <Trophy className="w-5 h-5" /> Misiones
           </button>
           <button 
             onClick={() => setActiveTab('shop')}
-            className={`flex-1 py-2 px-4 rounded-lg font-bold transition-all flex items-center justify-center gap-2 ${activeTab === 'shop' ? 'bg-white dark:bg-quest-card shadow-sm text-yellow-500' : 'text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'}`}
+            className={`tab-btn ${activeTab === 'shop' ? 'active' : ''}`}
           >
-            <Store className="w-4 h-4" /> Tienda
+            <Store className="w-5 h-5" /> Tienda
+          </button>
+          <button 
+            onClick={() => setActiveTab('pomodoro')}
+            className={`tab-btn ${activeTab === 'pomodoro' ? 'active' : ''}`}
+          >
+            <Timer className="w-5 h-5" /> Focus
+          </button>
+          <button 
+            onClick={() => setActiveTab('achievements')}
+            className={`tab-btn ${activeTab === 'achievements' ? 'active' : ''}`}
+          >
+            <Medal className="w-5 h-5" /> Logros
           </button>
         </div>
 
-        {activeTab === 'tasks' ? <TaskList /> : <Shop />}
+        {activeTab === 'tasks' && <TaskList />}
+        {activeTab === 'shop' && <Shop />}
+        {activeTab === 'pomodoro' && <div className="text-center p-12 text-quest-neonCyan font-gaming">Módulo en construcción...</div>}
+        {activeTab === 'achievements' && <div className="text-center p-12 text-quest-neonPink font-gaming">Módulo en construcción...</div>}
       </main>
     </div>
   )
