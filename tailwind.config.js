@@ -4,27 +4,25 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        'quest-dark': '#0b0f19',
-        'quest-card': '#111827',
-        'quest-border': '#1f2937',
-        'quest-neon-cyan': '#00f2fe',
-        'quest-neon-pink': '#fe0979',
-        'quest-neon-green': '#10b981',
-        'quest-neon-yellow': '#f59e0b',
+        'bento-bg': '#cbd5e1', // Fondo exterior gris claro como en la imagen
+        'bento-window': '#4a2529', // Granate oscuro de la ventana
+        'bento-sidebar': '#3a1a1f', // Sidebar aún más oscuro
+        'bento-card': '#633136', // Cards granate claro
+        'bento-card-hover': '#7a3c42',
+        'bento-accent': '#ff4757', // Acento rojo/coral brillante
+        'bento-text': '#fdf2f8', 
+        'bento-muted': '#fbcfe8',
       },
       fontFamily: {
         sans: ['Outfit', 'sans-serif'],
         gaming: ['"Space Grotesk"', 'sans-serif'],
       },
-      boxShadow: {
-        'neon-cyan': '0 0 10px theme("colors.quest-neon-cyan")',
-        'neon-pink': '0 0 10px theme("colors.quest-neon-pink")',
-        'neon-green': '0 0 10px theme("colors.quest-neon-green")',
-        'neon-yellow': '0 0 10px theme("colors.quest-neon-yellow")',
+      borderRadius: {
+        '4xl': '2rem',
+        '5xl': '2.5rem',
       }
     },
   },
