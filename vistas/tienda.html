@@ -81,9 +81,47 @@
             localStorage.setItem('temaOscuro', document.documentElement.classList.contains('dark'));
         });
         
-        // Cargar monedas (simplificado)
-        const jugador = JSON.parse(localStorage.getItem('taskquest_jugador') || '{}');
-        document.getElementById('monedas-display').textContent = (jugador.xp || 0) * 2; // Ejemplo: 2 monedas por cada XP
+        // Lógica de Tienda Funcional
+        let jugador = JSON.parse(localStorage.getItem('taskquest_jugador') || '{"xp": 0}');
+        let monedas = jugador.xp * 2; // Las monedas son el doble del XP
+        
+        const displayMonedas = document.getElementById('monedas-display');
+        displayMonedas.textContent = monedas;
+
+        // Comprar
+        document.querySelectorAll('#lista-recompensas button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const btnActual = e.currentTarget;
+                const costo = parseInt(btnActual.querySelector('span:last-child').textContent);
+                
+                if (monedas >= costo) {
+                    monedas -= costo;
+                    displayMonedas.textContent = monedas;
+                    
+                    // Restar XP equivalente
+                    jugador.xp -= Math.ceil(costo / 2);
+                    localStorage.setItem('taskquest_jugador', JSON.stringify(jugador));
+
+                    const originalHTML = btnActual.innerHTML;
+                    btnActual.innerHTML = '<i class="fas fa-check"></i> ¡Comprado!';
+                    btnActual.classList.replace('bg-yellow-500', 'bg-green-500');
+                    
+                    setTimeout(() => {
+                        btnActual.innerHTML = originalHTML;
+                        btnActual.classList.replace('bg-green-500', 'bg-yellow-500');
+                    }, 2000);
+                } else {
+                    const originalHTML = btnActual.innerHTML;
+                    btnActual.innerHTML = '<i class="fas fa-times"></i> Sin fondos';
+                    btnActual.classList.replace('bg-yellow-500', 'bg-red-500');
+                    
+                    setTimeout(() => {
+                        btnActual.innerHTML = originalHTML;
+                        btnActual.classList.replace('bg-red-500', 'bg-yellow-500');
+                    }, 2000);
+                }
+            });
+        });
     </script>
 </body>
 </html>
