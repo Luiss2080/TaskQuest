@@ -13,6 +13,7 @@ import { ServicioAnimaciones } from './utilidades/animaciones.js';
 import { motorSonidos } from './utilidades/ServicioSonidos.js';
 import { ControladorPomodoro } from './controladores/ControladorPomodoro.js';
 import { ComponentePomodoro } from './componentes/ComponentePomodoro.js';
+import { ComponentePantallaCarga } from './componentes/ComponentePantallaCarga.js';
 
 export class Aplicacion {
     constructor() {
@@ -36,12 +37,19 @@ export class Aplicacion {
      * Inicializa la aplicación
      */
     inicializar() {
+        const pantallaCarga = new ComponentePantallaCarga();
+        pantallaCarga.iniciar();
+
         this.inicializarTema();
         this.inicializarComponentes();
         this.configurarObservadores();
         this.configurarEventosComponentes();
         this.verificarEstadoInicial();
-        this.renderizarTodo();
+        
+        // Simular un pequeño retardo antes de renderizar para que la carga se vea
+        setTimeout(() => {
+            this.renderizarTodo();
+        }, 500);
     }
 
     /**
