@@ -10,6 +10,7 @@ import { ComponenteQuestDiaria } from './componentes/ComponenteQuestDiaria.js';
 import { ComponenteModal } from './componentes/ComponenteModal.js';
 import { ComponenteNotificaciones } from './componentes/ComponenteNotificaciones.js';
 import { ServicioAnimaciones } from './utilidades/animaciones.js';
+import { motorSonidos } from './utilidades/ServicioSonidos.js';
 
 export class Aplicacion {
     constructor() {
@@ -31,11 +32,44 @@ export class Aplicacion {
      * Inicializa la aplicación
      */
     inicializar() {
+        this.inicializarTema();
         this.inicializarComponentes();
         this.configurarObservadores();
         this.configurarEventosComponentes();
         this.verificarEstadoInicial();
         this.renderizarTodo();
+    }
+
+    /**
+     * Inicializa el tema oscuro/claro
+     */
+    inicializarTema() {
+        const btnTema = document.getElementById('btn-tema');
+        const temaOscuro = localStorage.getItem('temaOscuro') === 'true';
+        
+        if (temaOscuro) {
+            document.documentElement.classList.add('dark');
+        }
+
+        if (btnTema) {
+            btnTema.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                const esOscuro = document.documentElement.classList.contains('dark');
+                localStorage.setItem('temaOscuro', esOscuro);
+                
+                // Efecto visual
+                const icono = btnTema.querySelector('i');
+                icono.classList.toggle('fa-moon');
+                icono.classList.toggle('fa-sun');
+            });
+
+            // Sincronizar icono
+            const icono = btnTema.querySelector('i');
+            if (temaOscuro) {
+                icono.classList.remove('fa-moon');
+                icono.classList.add('fa-sun');
+            }
+        }
     }
 
     /**
@@ -173,6 +207,9 @@ export class Aplicacion {
                 
                 // Animaciones
                 this.animarTareaCompletada(id);
+                
+                // Sonido
+                motorSonidos.tareaCompletada();
                 
                 // Mostrar modal si subió de nivel
                 if (subioNivel) {
