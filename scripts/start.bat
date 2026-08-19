@@ -11,4 +11,4 @@ echo [INFO] Iniciando el servidor MEGA GAMER (Frontend + Backend)...
 echo [INFO] Asegurate de que MySQL este corriendo en Laragon!
 echo.
 
-call npx concurrently "node server/index.js" "vite --open"
+call npm run dev:all

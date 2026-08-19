@@ -51,6 +51,7 @@ initDB();
 
 // Registro
 app.post('/api/register', async (req, res) => {
+  if (!pool) return res.status(500).json({ error: 'Base de datos no conectada. ¡Enciende MySQL en Laragon!' });
   const { username, password } = req.body;
   if (!username || !password) return res.status(400).json({ error: 'Faltan campos' });
 
@@ -63,12 +64,13 @@ app.post('/api/register', async (req, res) => {
     
     res.json({ success: true, message: 'Jugador registrado con éxito' });
   } catch (error) {
-    res.status(500).json({ error: 'Error interno del servidor' });
+    res.status(500).json({ error: 'Error interno del servidor DB' });
   }
 });
 
 // Login
 app.post('/api/login', async (req, res) => {
+  if (!pool) return res.status(500).json({ error: 'Base de datos no conectada. ¡Enciende MySQL en Laragon!' });
   const { username, password } = req.body;
   if (!username || !password) return res.status(400).json({ error: 'Faltan campos' });
 
@@ -83,7 +85,7 @@ app.post('/api/login', async (req, res) => {
 
     res.json({ success: true, username: user.username });
   } catch (error) {
-    res.status(500).json({ error: 'Error interno del servidor' });
+    res.status(500).json({ error: 'Error interno del servidor DB' });
   }
 });
 
