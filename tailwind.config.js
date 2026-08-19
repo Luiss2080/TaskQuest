@@ -9,28 +9,24 @@ export default {
     extend: {
       colors: {
         quest: {
-          dark: '#050505',
-          card: '#0f0f13',
-          border: '#1f1f2e',
-          neonCyan: '#00f3ff',
-          neonPink: '#ff00ea',
-          neonGreen: '#39ff14',
-          neonYellow: '#ffe600',
+          dark: '#0f172a',
+          card: '#1e293b',
+          border: '#334155',
+          'neon-cyan': '#06b6d4',
+          'neon-pink': '#d946ef',
+          'neon-green': '#22c55e',
+          'neon-yellow': '#f59e0b',
         }
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         gaming: ['"Press Start 2P"', 'cursive'],
-        cyber: ['"Orbitron"', 'sans-serif'], // We'll assume orbitron or standard sans
       },
       boxShadow: {
-        'neon-cyan': '0 0 5px theme("colors.quest.neonCyan"), 0 0 20px theme("colors.quest.neonCyan")',
-        'neon-pink': '0 0 5px theme("colors.quest.neonPink"), 0 0 20px theme("colors.quest.neonPink")',
-        'neon-green': '0 0 5px theme("colors.quest.neonGreen"), 0 0 20px theme("colors.quest.neonGreen")',
-        'neon-yellow': '0 0 5px theme("colors.quest.neonYellow"), 0 0 20px theme("colors.quest.neonYellow")',
-      },
-      backgroundImage: {
-        'gamer-grid': 'linear-gradient(to right, #1f1f2e 1px, transparent 1px), linear-gradient(to bottom, #1f1f2e 1px, transparent 1px)',
+        'neon-cyan': '0 0 10px theme("colors.quest.neon-cyan")',
+        'neon-pink': '0 0 10px theme("colors.quest.neon-pink")',
+        'neon-green': '0 0 10px theme("colors.quest.neon-green")',
+        'neon-yellow': '0 0 10px theme("colors.quest.neon-yellow")',
       }
     },
   },

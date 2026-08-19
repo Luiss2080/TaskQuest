@@ -15,10 +15,10 @@ export default function Shop() {
   const [newTitle, setNewTitle] = useState('')
   const [newCost, setNewCost] = useState(10)
 
-  const handleBuy = (cost: number) => {
-    const success = buyReward(cost)
+  const handleBuy = (reward: Reward) => {
+    const success = buyReward(reward)
     if (success) {
-      alert('¡Recompensa comprada con éxito!')
+      alert(`¡Has comprado ${reward.title}! Se ha añadido a tu inventario.`)
     } else {
       alert('No tienes suficientes monedas.')
     }
@@ -49,11 +49,11 @@ export default function Shop() {
   return (
     <div className="space-y-8">
       <div className="text-center">
-        <h2 className="text-3xl font-gaming text-yellow-500 mb-2">Mercado Épico</h2>
-        <p className="text-gray-500 dark:text-gray-400">Gasta tus monedas ganadas en recompensas de la vida real.</p>
+        <h2 className="text-3xl font-gaming text-yellow-500 mb-2">Tienda de Recompensas</h2>
+        <p className="text-gray-500 dark:text-gray-400">Gasta tus créditos para comprar recompensas reales.</p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {customRewards.map((reward) => (
           <motion.div whileHover={{ scale: 1.02 }} key={reward.id} className="card flex flex-col items-center text-center relative group">
             <button 
@@ -62,32 +62,32 @@ export default function Shop() {
             >
               <Trash2 className="w-4 h-4" />
             </button>
-            <div className="text-purple-500 mb-4 bg-purple-100 dark:bg-purple-900/30 p-4 rounded-full">
+            <div className="text-purple-500 mb-4 bg-purple-100 dark:bg-slate-800 p-4 rounded-2xl">
               {renderIcon(reward.icon)}
             </div>
             <h3 className="font-bold text-lg mb-4">{reward.title}</h3>
             <button 
-              onClick={() => handleBuy(reward.cost)}
+              onClick={() => handleBuy(reward)}
               disabled={coins < reward.cost}
-              className={`w-full py-2 rounded-lg font-bold flex justify-center items-center gap-2 transition-colors ${coins >= reward.cost ? 'bg-yellow-500 hover:bg-yellow-600 text-white' : 'bg-gray-200 dark:bg-gray-800 text-gray-400 cursor-not-allowed'}`}
+              className={`w-full py-3 rounded-xl font-bold flex justify-center items-center gap-2 transition-colors ${coins >= reward.cost ? 'bg-yellow-500 hover:bg-yellow-600 text-white' : 'bg-gray-200 dark:bg-slate-800 text-gray-400 cursor-not-allowed'}`}
             >
-              Comprar <span>({reward.cost} <span className="text-xs uppercase">monedas</span>)</span>
+              Comprar <span className="opacity-80">({reward.cost} Créditos)</span>
             </button>
           </motion.div>
         ))}
       </div>
 
-      <div className="card max-w-md mx-auto">
+      <div className="card max-w-md mx-auto mt-12">
         <h3 className="font-bold mb-4 flex items-center gap-2">
-          <Plus className="w-5 h-5 text-quest-primary" /> Crear Recompensa
+          <Plus className="w-5 h-5 text-quest-neon-cyan" /> Nueva Recompensa
         </h3>
         <form onSubmit={addReward} className="flex flex-col gap-3">
           <input
             type="text"
-            placeholder="Ej: Ver un episodio"
+            placeholder="Ej: Ver un episodio de serie"
             value={newTitle}
             onChange={(e) => setNewTitle(e.target.value)}
-            className="w-full p-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none"
+            className="w-full p-3 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl outline-none"
           />
           <div className="flex gap-2 items-center">
             <input
@@ -95,9 +95,9 @@ export default function Shop() {
               placeholder="Costo"
               value={newCost}
               onChange={(e) => setNewCost(Number(e.target.value))}
-              className="w-full p-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none"
+              className="w-full p-3 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl outline-none"
             />
-            <button type="submit" className="btn-primary whitespace-nowrap">
+            <button type="submit" className="btn-primary whitespace-nowrap py-3">
               Añadir
             </button>
           </div>

@@ -16,6 +16,10 @@ export interface Reward {
   icon: string;
 }
 
+export interface InventoryItem extends Reward {
+  instanceId: string;
+}
+
 interface GameState {
   tasks: Task[];
   xp: number;
@@ -24,29 +28,38 @@ interface GameState {
   health: number;
   maxHealth: number;
   playerClass: 'Cyber Samurai' | 'Neon Mage' | 'Tech Sniper';
+  inventory: InventoryItem[];
   
   addTask: (text: string, difficulty: Task['difficulty']) => void;
   toggleTask: (id: string) => void;
   deleteTask: (id: string) => void;
-  buyReward: (cost: number) => boolean;
+  buyReward: (reward: Reward) => boolean;
+  consumeItem: (instanceId: string) => void;
   addCoins: (amount: number) => void;
   takeDamage: (amount: number) => void;
   heal: (amount: number) => void;
   setClass: (c: GameState['playerClass']) => void;
+  resetData: () => void;
+  importData: (data: any) => void;
 }
 
 const XP_MAP = { easy: 10, medium: 25, hard: 50, epic: 100 };
 
+const initialState = {
+  tasks: [],
+  xp: 0,
+  level: 1,
+  coins: 50,
+  health: 100,
+  maxHealth: 100,
+  playerClass: 'Cyber Samurai' as const,
+  inventory: []
+};
+
 export const useStore = create<GameState>()(
   persist(
     (set, get) => ({
-      tasks: [],
-      xp: 0,
-      level: 1,
-      coins: 50,
-      health: 100,
-      maxHealth: 100,
-      playerClass: 'Cyber Samurai',
+      ...initialState,
       
       addTask: (text, difficulty) => set((state) => ({
         tasks: [
@@ -75,7 +88,6 @@ export const useStore = create<GameState>()(
           newXp = (newLevel * 100) + newXp;
         }
 
-        // Heal when completing task
         const newHealth = isCompleting ? Math.min(state.maxHealth, state.health + 5) : state.health;
 
         return {
@@ -91,22 +103,31 @@ export const useStore = create<GameState>()(
         tasks: state.tasks.filter(t => t.id !== id)
       })),
 
-      buyReward: (cost) => {
-        const { coins } = get();
-        if (coins >= cost) {
-          set({ coins: coins - cost });
+      buyReward: (reward) => {
+        const { coins, inventory } = get();
+        if (coins >= reward.cost) {
+          set({ 
+            coins: coins - reward.cost,
+            inventory: [...inventory, { ...reward, instanceId: crypto.randomUUID() }]
+          });
           return true;
         }
         return false;
       },
 
+      consumeItem: (instanceId) => set((state) => ({
+        inventory: state.inventory.filter(i => i.instanceId !== instanceId)
+      })),
+
       addCoins: (amount) => set((state) => ({ coins: state.coins + amount })),
       takeDamage: (amount) => set((state) => ({ health: Math.max(0, state.health - amount) })),
       heal: (amount) => set((state) => ({ health: Math.min(state.maxHealth, state.health + amount) })),
-      setClass: (c) => set({ playerClass: c })
+      setClass: (c) => set({ playerClass: c }),
+      resetData: () => set(initialState),
+      importData: (data) => set(data)
     }),
     {
-      name: 'taskquest-cyber-storage',
+      name: 'taskquest-modern-storage',
     }
   )
 )
