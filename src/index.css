@@ -4,14 +4,15 @@
 
 @layer base {
   body {
-    @apply antialiased bg-gray-50 dark:bg-quest-dark text-gray-800 dark:text-gray-200 transition-colors duration-300;
+    /* Usar colores nativos de Tailwind para evitar cualquier error de PostCSS JIT */
+    @apply antialiased bg-gray-50 dark:bg-slate-900 text-gray-800 dark:text-gray-200 transition-colors duration-300;
   }
 }
 
 @layer components {
-  /* En lugar de usar @apply para colores custom, usaremos clases nativas de tailwind en los componentes para evitar que PostCSS falle. */
   .card {
-    @apply bg-white dark:bg-quest-card rounded-2xl shadow-xl border border-gray-100 dark:border-quest-border p-4 sm:p-6 transition-all duration-300;
+    /* bg-slate-800 y border-slate-700 son colores nativos de Tailwind 100% seguros */
+    @apply bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-gray-100 dark:border-slate-700 p-4 sm:p-6 transition-all duration-300;
   }
 
   .nav-item {
@@ -19,7 +20,8 @@
   }
   
   .nav-item.active {
-    @apply bg-quest-neon-cyan text-white shadow-neon-cyan;
+    /* Utilizando colores nativos de Tailwind para la clase activa */
+    @apply bg-cyan-500 text-white shadow-lg shadow-cyan-500/50;
   }
 }
 
