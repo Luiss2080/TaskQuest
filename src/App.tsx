@@ -3,6 +3,8 @@ import { Store, Trophy, Timer, Medal } from 'lucide-react'
 import TaskList from './components/TaskList'
 import Shop from './components/Shop'
 import CharacterPanel from './components/CharacterPanel'
+import Pomodoro from './components/Pomodoro'
+import Achievements from './components/Achievements'
 
 function App() {
   const [activeTab, setActiveTab] = useState<'tasks' | 'shop' | 'pomodoro' | 'achievements'>('tasks')
@@ -56,8 +58,8 @@ function App() {
 
         {activeTab === 'tasks' && <TaskList />}
         {activeTab === 'shop' && <Shop />}
-        {activeTab === 'pomodoro' && <div className="text-center p-12 text-quest-neonCyan font-gaming">Módulo en construcción...</div>}
-        {activeTab === 'achievements' && <div className="text-center p-12 text-quest-neonPink font-gaming">Módulo en construcción...</div>}
+        {activeTab === 'pomodoro' && <Pomodoro />}
+        {activeTab === 'achievements' && <Achievements />}
       </main>
     </div>
   )
