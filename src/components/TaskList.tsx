@@ -24,7 +24,6 @@ export default function TaskList() {
 
   return (
     <div className="space-y-8">
-      {/* Añadir Tarea */}
       <div className="card">
         <h2 className="text-xl font-bold mb-4">Nueva Misión</h2>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -42,8 +41,7 @@ export default function TaskList() {
                   type="button"
                   key={diff}
                   onClick={() => setDifficulty(diff)}
-                  className={\`px-3 py-1.5 rounded-lg text-sm font-bold border transition-colors flex items-center gap-1
-                    \${difficulty === diff ? difficultyConfig[diff].bg : 'border-transparent text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800'}\`}
+                  className={`px-3 py-1.5 rounded-lg text-sm font-bold border transition-colors flex items-center gap-1 ${difficulty === diff ? difficultyConfig[diff].bg : 'border-transparent text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800'}`}
                 >
                   {difficultyConfig[diff].icon}
                   <span className={difficulty === diff ? difficultyConfig[diff].color : ''}>
@@ -59,7 +57,6 @@ export default function TaskList() {
         </form>
       </div>
 
-      {/* Lista de Tareas */}
       <div className="space-y-3">
         <AnimatePresence>
           {tasks.length === 0 ? (
@@ -76,23 +73,22 @@ export default function TaskList() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  className={\`card p-3 sm:p-4 flex items-center gap-4 transition-all \${task.completed ? 'opacity-50 grayscale' : ''}\`}
+                  className={`card p-3 sm:p-4 flex items-center gap-4 transition-all ${task.completed ? 'opacity-50 grayscale' : ''}`}
                 >
                   <button
                     onClick={() => toggleTask(task.id)}
-                    className={\`w-8 h-8 rounded-full flex items-center justify-center border-2 flex-shrink-0 transition-colors
-                      \${task.completed ? 'bg-green-500 border-green-500 text-white' : 'border-gray-300 dark:border-gray-600 text-transparent hover:border-green-500 hover:text-green-200'}\`}
+                    className={`w-8 h-8 rounded-full flex items-center justify-center border-2 flex-shrink-0 transition-colors ${task.completed ? 'bg-green-500 border-green-500 text-white' : 'border-gray-300 dark:border-gray-600 text-transparent hover:border-green-500 hover:text-green-200'}`}
                   >
                     <Check className="w-5 h-5" />
                   </button>
                   
                   <div className="flex-1 min-w-0">
-                    <p className={\`font-bold text-lg truncate \${task.completed ? 'line-through text-gray-500' : ''}\`}>
+                    <p className={`font-bold text-lg truncate ${task.completed ? 'line-through text-gray-500' : ''}`}>
                       {task.text}
                     </p>
                     <div className="flex items-center gap-1 mt-1">
                       {config.icon}
-                      <span className={\`text-xs font-bold \${config.color}\`}>{config.label}</span>
+                      <span className={`text-xs font-bold ${config.color}`}>{config.label}</span>
                     </div>
                   </div>
 

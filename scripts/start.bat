@@ -1,18 +1,22 @@
 @echo off
-color 0B
+color 0A
 echo ===================================================
-echo   TaskQuest V2 - React + TypeScript + Tailwind
+echo     TaskQuest V3 - ULTIMATE GAMER EDITION
 echo ===================================================
 echo.
 
 cd ..
 
-echo [INFO] Instalando las nuevas dependencias (React, Vite, Zustand)...
+echo [INFO] Limpiando archivos antiguos obsoletos...
+if exist "js" rmdir /S /Q js
+if exist "estilos" rmdir /S /Q estilos
+if exist "css" rmdir /S /Q css
+if exist "vistas" rmdir /S /Q vistas
+if exist "sw.js" del sw.js
+if exist "ESTRUCTURA.md" del ESTRUCTURA.md
+
+echo [INFO] Instalando dependencias (por si acaso)...
 call npm install
 
-echo [INFO] Iniciando servidor de desarrollo con Vite...
-echo [INFO] Se abrira una ventana en tu navegador automaticamente.
-echo.
-
-:: Vite abrirá automáticamente el navegador si le pasamos --open
+echo [INFO] Iniciando el servidor MEGA GAMER...
 call npx vite --open

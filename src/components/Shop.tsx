@@ -69,10 +69,7 @@ export default function Shop() {
             <button 
               onClick={() => handleBuy(reward.cost)}
               disabled={coins < reward.cost}
-              className={\`w-full py-2 rounded-lg font-bold flex justify-center items-center gap-2 transition-colors
-                \${coins >= reward.cost 
-                  ? 'bg-yellow-500 hover:bg-yellow-600 text-white' 
-                  : 'bg-gray-200 dark:bg-gray-800 text-gray-400 cursor-not-allowed'}\`}
+              className={`w-full py-2 rounded-lg font-bold flex justify-center items-center gap-2 transition-colors ${coins >= reward.cost ? 'bg-yellow-500 hover:bg-yellow-600 text-white' : 'bg-gray-200 dark:bg-gray-800 text-gray-400 cursor-not-allowed'}`}
             >
               Comprar <span>({reward.cost} <span className="text-xs uppercase">monedas</span>)</span>
             </button>

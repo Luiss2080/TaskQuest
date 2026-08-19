@@ -21,11 +21,18 @@ interface GameState {
   xp: number;
   level: number;
   coins: number;
+  health: number;
+  maxHealth: number;
+  playerClass: 'Cyber Samurai' | 'Neon Mage' | 'Tech Sniper';
+  
   addTask: (text: string, difficulty: Task['difficulty']) => void;
   toggleTask: (id: string) => void;
   deleteTask: (id: string) => void;
   buyReward: (cost: number) => boolean;
   addCoins: (amount: number) => void;
+  takeDamage: (amount: number) => void;
+  heal: (amount: number) => void;
+  setClass: (c: GameState['playerClass']) => void;
 }
 
 const XP_MAP = { easy: 10, medium: 25, hard: 50, epic: 100 };
@@ -36,7 +43,10 @@ export const useStore = create<GameState>()(
       tasks: [],
       xp: 0,
       level: 1,
-      coins: 0,
+      coins: 50,
+      health: 100,
+      maxHealth: 100,
+      playerClass: 'Cyber Samurai',
       
       addTask: (text, difficulty) => set((state) => ({
         tasks: [
@@ -65,11 +75,15 @@ export const useStore = create<GameState>()(
           newXp = (newLevel * 100) + newXp;
         }
 
+        // Heal when completing task
+        const newHealth = isCompleting ? Math.min(state.maxHealth, state.health + 5) : state.health;
+
         return {
           tasks: state.tasks.map(t => t.id === id ? { ...t, completed: !t.completed } : t),
           xp: Math.max(0, newXp),
           level: newLevel,
-          coins: Math.max(0, state.coins + coinsGained)
+          coins: Math.max(0, state.coins + coinsGained),
+          health: newHealth
         };
       }),
 
@@ -86,10 +100,13 @@ export const useStore = create<GameState>()(
         return false;
       },
 
-      addCoins: (amount) => set((state) => ({ coins: state.coins + amount }))
+      addCoins: (amount) => set((state) => ({ coins: state.coins + amount })),
+      takeDamage: (amount) => set((state) => ({ health: Math.max(0, state.health - amount) })),
+      heal: (amount) => set((state) => ({ health: Math.min(state.maxHealth, state.health + amount) })),
+      setClass: (c) => set({ playerClass: c })
     }),
     {
-      name: 'taskquest-storage',
+      name: 'taskquest-cyber-storage',
     }
   )
 )

@@ -4,19 +4,62 @@
 
 @layer base {
   body {
-    @apply antialiased;
-    background-image: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15), transparent 50%);
+    @apply antialiased bg-quest-dark text-gray-200;
+    /* Fondo estilo cuadrícula Cyberpunk/Gamer */
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(31, 31, 46, 0.5) 1px, transparent 1px), 
+      linear-gradient(to bottom, rgba(31, 31, 46, 0.5) 1px, transparent 1px);
+    background-attachment: fixed;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply px-4 py-2 bg-quest-primary hover:bg-indigo-500 text-white font-bold rounded-lg transition-colors flex items-center justify-center gap-2;
+    @apply relative px-4 py-2 bg-transparent text-quest-neonCyan font-bold uppercase tracking-widest border border-quest-neonCyan transition-all duration-300 hover:bg-quest-neonCyan hover:text-black hover:shadow-neon-cyan flex items-center justify-center gap-2 overflow-hidden;
   }
+  
   .btn-secondary {
-    @apply px-4 py-2 bg-quest-secondary hover:bg-pink-400 text-white font-bold rounded-lg transition-colors flex items-center justify-center gap-2;
+    @apply relative px-4 py-2 bg-transparent text-quest-neonPink font-bold uppercase tracking-widest border border-quest-neonPink transition-all duration-300 hover:bg-quest-neonPink hover:text-white hover:shadow-neon-pink flex items-center justify-center gap-2;
   }
+
   .card {
-    @apply bg-white dark:bg-quest-card rounded-xl shadow-lg border border-gray-200 dark:border-gray-800 p-4 sm:p-6;
+    @apply bg-quest-card/90 backdrop-blur-sm rounded-none border border-quest-border p-4 sm:p-6 relative overflow-hidden;
   }
+
+  .card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-quest-border to-transparent;
+  }
+
+  .tab-btn {
+    @apply flex-1 py-3 px-4 font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 border-b-2 border-transparent text-gray-500 hover:text-gray-300;
+  }
+  
+  .tab-btn.active {
+    @apply text-quest-neonCyan border-quest-neonCyan shadow-[0_4px_15px_-3px_rgba(0,243,255,0.3)] bg-quest-neonCyan/10;
+  }
+  
+  .crt-overlay {
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-quest-dark border-l border-quest-border;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-quest-neonCyan/50 hover:bg-quest-neonCyan;
 }

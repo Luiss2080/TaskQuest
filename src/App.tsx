@@ -19,7 +19,6 @@ function App() {
 
   return (
     <div className="min-h-screen pb-12">
-      {/* Header */}
       <header className="sticky top-0 z-50 bg-white/80 dark:bg-quest-card/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 p-4">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-3">
@@ -39,7 +38,7 @@ function App() {
                 <span className="text-quest-primary">{xp} / {xpRequired}</span>
               </div>
               <div className="h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
-                <div className="h-full bg-quest-primary transition-all duration-500" style={{ width: \`\${progress}%\` }} />
+                <div className="h-full bg-quest-primary transition-all duration-500" style={{ width: `${progress}%` }} />
               </div>
             </div>
 
@@ -55,19 +54,17 @@ function App() {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="max-w-4xl mx-auto p-4 mt-6">
-        {/* Navigation Tabs */}
         <div className="flex gap-2 mb-8 bg-gray-200 dark:bg-gray-800 p-1 rounded-xl w-full max-w-sm mx-auto">
           <button 
             onClick={() => setActiveTab('tasks')}
-            className={\`flex-1 py-2 px-4 rounded-lg font-bold transition-all flex items-center justify-center gap-2 \${activeTab === 'tasks' ? 'bg-white dark:bg-quest-card shadow-sm text-quest-primary' : 'text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'}\`}
+            className={`flex-1 py-2 px-4 rounded-lg font-bold transition-all flex items-center justify-center gap-2 ${activeTab === 'tasks' ? 'bg-white dark:bg-quest-card shadow-sm text-quest-primary' : 'text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'}`}
           >
             <Trophy className="w-4 h-4" /> Misiones
           </button>
           <button 
             onClick={() => setActiveTab('shop')}
-            className={\`flex-1 py-2 px-4 rounded-lg font-bold transition-all flex items-center justify-center gap-2 \${activeTab === 'shop' ? 'bg-white dark:bg-quest-card shadow-sm text-yellow-500' : 'text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'}\`}
+            className={`flex-1 py-2 px-4 rounded-lg font-bold transition-all flex items-center justify-center gap-2 ${activeTab === 'shop' ? 'bg-white dark:bg-quest-card shadow-sm text-yellow-500' : 'text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'}`}
           >
             <Store className="w-4 h-4" /> Tienda
           </button>

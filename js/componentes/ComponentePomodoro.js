@@ -81,7 +81,7 @@ export class ComponentePomodoro {
         // Formatear tiempo
         const minutos = Math.floor(estadoInfo.tiempoRestante / 60).toString().padStart(2, '0');
         const segundos = (estadoInfo.tiempoRestante % 60).toString().padStart(2, '0');
-        elTiempo.textContent = \`\${minutos}:\${segundos}\`;
+        elTiempo.textContent = `${minutos}:${segundos}`;
 
         // Botones
         if (estadoInfo.estado === 'corriendo') {
