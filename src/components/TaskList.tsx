@@ -50,7 +50,7 @@ export default function TaskList() {
                 </button>
               ))}
             </div>
-            <button type="submit" className="btn-primary w-full sm:w-auto">
+            <button type="submit" className="relative px-6 py-3 bg-quest-neon-cyan text-white font-bold rounded-xl transition-all duration-300 hover:bg-cyan-600 hover:shadow-neon-cyan flex items-center justify-center gap-2 w-full sm:w-auto">
               <Plus className="w-5 h-5" /> Añadir Misión
             </button>
           </div>

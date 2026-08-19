@@ -53,20 +53,20 @@ export default function SettingsPanel() {
         
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-between p-4 bg-gray-50 dark:bg-slate-800 rounded-xl">
           <div>
-            <h4 className="font-bold">Exportar Guardado</h4>
+            <h4 className="font-bold flex items-center gap-2"><Download className="w-5 h-5 text-quest-neon-cyan" /> Exportar Guardado</h4>
             <p className="text-sm text-gray-500">Guarda una copia de seguridad local.</p>
           </div>
-          <button onClick={handleExport} className="btn-primary w-full sm:w-auto text-sm py-2">
+          <button onClick={handleExport} className="relative px-6 py-3 bg-quest-neon-cyan text-white font-bold rounded-xl transition-all duration-300 hover:bg-cyan-600 hover:shadow-neon-cyan flex items-center justify-center gap-2 w-full sm:w-auto">
             <Download className="w-4 h-4" /> Exportar
           </button>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-between p-4 bg-gray-50 dark:bg-slate-800 rounded-xl relative">
           <div>
-            <h4 className="font-bold">Importar Guardado</h4>
+            <h4 className="font-bold flex items-center gap-2"><Upload className="w-5 h-5 text-quest-neon-pink" /> Importar Guardado</h4>
             <p className="text-sm text-gray-500">Carga un archivo .json previo.</p>
           </div>
-          <label className="btn-secondary w-full sm:w-auto text-sm py-2 cursor-pointer text-white">
+          <label className="relative px-6 py-3 bg-quest-neon-pink text-white font-bold rounded-xl transition-all duration-300 hover:bg-fuchsia-600 hover:shadow-neon-pink flex items-center justify-center gap-2 w-full sm:w-auto cursor-pointer">
             <Upload className="w-4 h-4" /> Importar
             <input type="file" accept=".json" onChange={handleImport} className="hidden" />
           </label>

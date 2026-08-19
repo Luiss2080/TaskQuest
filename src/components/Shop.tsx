@@ -97,8 +97,8 @@ export default function Shop() {
               onChange={(e) => setNewCost(Number(e.target.value))}
               className="w-full p-3 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl outline-none"
             />
-            <button type="submit" className="btn-primary whitespace-nowrap py-3">
-              Añadir
+            <button type="submit" className="relative px-6 py-3 bg-quest-neon-cyan text-white font-bold rounded-xl transition-all duration-300 hover:bg-cyan-600 hover:shadow-neon-cyan flex items-center justify-center gap-2 whitespace-nowrap">
+              <Plus className="w-5 h-5" /> Añadir
             </button>
           </div>
         </form>

@@ -9,14 +9,7 @@
 }
 
 @layer components {
-  .btn-primary {
-    @apply relative px-4 py-2 bg-quest-neon-cyan text-white font-bold rounded-lg transition-all duration-300 hover:bg-cyan-600 hover:shadow-neon-cyan flex items-center justify-center gap-2;
-  }
-  
-  .btn-secondary {
-    @apply relative px-4 py-2 bg-quest-neon-pink text-white font-bold rounded-lg transition-all duration-300 hover:bg-fuchsia-600 hover:shadow-neon-pink flex items-center justify-center gap-2;
-  }
-
+  /* En lugar de usar @apply para colores custom, usaremos clases nativas de tailwind en los componentes para evitar que PostCSS falle. */
   .card {
     @apply bg-white dark:bg-quest-card rounded-2xl shadow-xl border border-gray-100 dark:border-quest-border p-4 sm:p-6 transition-all duration-300;
   }
