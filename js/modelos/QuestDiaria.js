@@ -18,7 +18,9 @@ export class QuestDiaria {
      * Calcula el porcentaje de progreso
      */
     get porcentajeProgreso() {
-        return (this.progreso / this.meta) * 100;
+        if (!this.meta) return 0;
+        const porcentaje = (this.progreso / this.meta) * 100;
+        return Math.min(100, Math.max(0, porcentaje));
     }
 
     /**
