@@ -3,7 +3,7 @@ import { Heart, Coins, Star, Trophy, Target } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export default function PanelPersonaje() {
-  const { level, xp, coins, health, maxHealth, playerClass, tasks } = useStore()
+  const { level, xp, coins, health, maxHealth, playerClass, tasks, user } = useStore()
   
   const xpRequired = level * 100
   const progress = (xp / xpRequired) * 100
@@ -29,7 +29,7 @@ export default function PanelPersonaje() {
 
       {/* Nombres y Títulos */}
       <div className="text-center space-y-2 z-10 mb-8 mt-2">
-        <h2 className="text-3xl font-bold text-white tracking-tight">Player_One</h2>
+        <h2 className="text-3xl font-bold text-white tracking-tight">{user ?? 'Player_One'}</h2>
         <div className="inline-flex items-center gap-2 bg-white/5 px-4 py-1.5 rounded-full text-sm font-bold text-rose-400 border border-white/5">
           <span className="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span>
           {playerClass}

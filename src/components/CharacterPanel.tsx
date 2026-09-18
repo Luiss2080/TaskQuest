@@ -2,7 +2,7 @@ import { useStore } from '../store/useStore'
 import { Heart, Coins, Star } from 'lucide-react'
 
 export default function CharacterPanel() {
-  const { level, xp, coins, health, maxHealth, playerClass } = useStore()
+  const { level, xp, coins, health, maxHealth, playerClass, user } = useStore()
   
   const xpRequired = level * 100
   const progress = (xp / xpRequired) * 100
@@ -26,7 +26,7 @@ export default function CharacterPanel() {
       <div className="flex-1 w-full space-y-5">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
           <div>
-            <h2 className="text-3xl font-gaming text-gray-800 dark:text-white tracking-tight">Player_One</h2>
+            <h2 className="text-3xl font-gaming text-gray-800 dark:text-white tracking-tight">{user ?? 'Player_One'}</h2>
             <div className="inline-flex items-center gap-1.5 mt-1 px-3 py-1 bg-cyan-500/10 text-quest-neon-cyan rounded-lg text-sm font-bold">
               <span className="w-2 h-2 rounded-full bg-quest-neon-cyan animate-pulse"></span>
               {playerClass}
