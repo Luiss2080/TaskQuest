@@ -1,5 +1,5 @@
 import { useStore } from '../store/useStore'
-import { Download, Upload, Trash2, Power } from 'lucide-react'
+import { Download, Upload, Power } from 'lucide-react'
 
 export default function SettingsPanel() {
   const { resetData, importData } = useStore()

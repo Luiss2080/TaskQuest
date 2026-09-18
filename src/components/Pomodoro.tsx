@@ -9,7 +9,7 @@ export default function Pomodoro() {
   const [mode, setMode] = useState<'work' | 'break'>('work')
 
   useEffect(() => {
-    let interval: number;
+    let interval: ReturnType<typeof setInterval> | undefined;
     if (isRunning && timeLeft > 0) {
       interval = setInterval(() => {
         setTimeLeft((prev) => prev - 1)

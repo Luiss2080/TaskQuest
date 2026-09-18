@@ -59,7 +59,7 @@ flowchart TD
 | Node.js | Verificado con v24; no hay `engines` declarado |
 | MySQL | Solo para el registro/login real (usuario `root` sin contraseña, valores fijos en `server/index.js`) |
 
-1. Clona e instala (no hay `package-lock.json`, así que `npm ci` no funciona):
+1. Clona e instala (hay `package-lock.json`, así que también puedes usar `npm ci`):
    ```bash
    git clone https://github.com/Luiss2080/TaskQuest.git
    cd TaskQuest
@@ -98,9 +98,8 @@ No hay tests automatizados ni CI. Comprobación manual del 18/09/2026: la app ar
 
 ## 🚧 Lo que todavía no existe
 
-- `npm run build` **falla** hoy: `tsc` reporta 4 errores (imports sin usar en `Auth.tsx` y `SettingsPanel.tsx`, y el tipo de `setInterval` en `Temporizador.tsx`/`Pomodoro.tsx`).
 - El progreso no se sincroniza con el servidor; solo el usuario se guarda en MySQL.
-- El panel del personaje muestra el nombre fijo "Player_One", no el usuario que entró; la barra de búsqueda de la cabecera no hace nada.
+- La barra de búsqueda de la cabecera no hace nada.
 - Las recompensas de la tienda se guardan en estado local del componente y no persisten al recargar.
 - No hay categorías de tareas, rachas diarias ni quest diaria; esas funciones solo existen en la versión anterior sin uso.
 - No hay archivo LICENSE (el README anterior decía ISC sin respaldo): todos los derechos reservados por defecto.
