@@ -1,270 +1,112 @@
 <div align="center">
-
-# 🎮 TaskQuest
-
-### **Convierte tus tareas aburridas en misiones épicas**
-
-[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
-[![Anime.js](https://img.shields.io/badge/Anime.js-Animation-FF0080?style=for-the-badge)](https://animejs.com)
-[![License](https://img.shields.io/badge/License-ISC-blue?style=for-the-badge)](LICENSE)
-
-**¿Cansado de hacer listas de tareas aburridas? 😴**  
-**¡Conviértete en un guerrero de la productividad! ⚔️**
-
-[🚀 Demo](#) · [📖 Documentación](ESTRUCTURA.md) · [🐛 Reportar Bug](#) · [✨ Solicitar Feature](#)
-
+  <img src="docs/assets/logo.svg" width="96" alt="Logo de TaskQuest" />
+  <h1>TaskQuest</h1>
+  <p><b>Lista de tareas con mecánicas de RPG: cada misión cumplida da XP, créditos y niveles.</b></p>
+  <img src="https://img.shields.io/badge/estado-prototipo-orange?style=for-the-badge" alt="Estado: prototipo" />
+  <img src="https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React 18" />
+  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript 5" />
+  <img src="https://img.shields.io/badge/Vite-5-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite 5" />
+  <img src="https://img.shields.io/badge/tests-ninguno-lightgrey?style=for-the-badge" alt="Sin tests" />
+  <p>
+    <a href="#-inicio-rápido">Inicio rápido</a> ·
+    <a href="#-características">Características</a> ·
+    <a href="#-arquitectura">Arquitectura</a> ·
+    <a href="#-pruebas">Pruebas</a> ·
+    <a href="#-lo-que-todavía-no-existe">Limitaciones</a>
+  </p>
 </div>
 
----
+**TaskQuest** es una app web en React + TypeScript donde las tareas son "misiones": según su dificultad dan XP y créditos, subes de nivel, compras recompensas en una tienda y usas un temporizador Pomodoro. El progreso vive en el navegador (`localStorage`). **No es** un producto terminado: la sesión es solo un pretexto de acceso, varias pantallas usan datos fijos y el repo conserva una versión anterior en JavaScript puro que ya no se usa.
 
-## 🎯 ¿Qué es TaskQuest?
-
-**TaskQuest** transforma tu lista de tareas en un **juego RPG adictivo**. Cada tarea completada te da **XP**, subes de **nivel**, mantienes **rachas diarias** y desbloqueas **logros**.
-
-> 💡 **¿Por qué es diferente?**  
-> No es solo otra app de tareas. Es tu propio videojuego de productividad donde TÚ eres el protagonista.
-
-### ✨ Características Principales
-
-<table>
-<tr>
-<td width="50%">
-
-#### 🎮 **Gamificación Total**
-- ⬆️ Sistema de niveles y XP
-- 🔥 Rachas diarias que te motivan
-- 🏆 Logros desbloqueables
-- 💪 Quest diaria con bonus
-
-</td>
-<td width="50%">
-
-#### ⚡ **Súper Productivo**
-- 📝 4 niveles de dificultad
-- 🏷️ 5 categorías organizadas
-- 📊 Estadísticas detalladas
-- 💾 Exportar/Importar datos
-
-</td>
-</tr>
-</table>
-
----
-
-## 🚀 Demo Rápida
-
-```bash
-# 1. Clonar el repo
-git clone https://github.com/tu-usuario/TaskQuest.git
-
-# 2. Instalar dependencias
-cd TaskQuest
-npm install
-
-# 3. Compilar estilos
-npm run build
-
-# 4. ¡Abrir y jugar!
-# Abrir vistas/index.html en tu navegador
-```
-
-**O con Laragon:**  
-`http://localhost/TaskQuest/vistas/`
-
----
-
-## 🎮 Cómo Jugar
-
-### 1️⃣ **Crea tu Misión**
-```
-📝 "Terminar informe de ventas"
-⭐⭐⭐ Difícil → +50 XP
-💼 Categoría: Trabajo
-```
-
-### 2️⃣ **Completa y Gana XP**
-```
-✅ Tarea completada
-💰 +50 XP ganados
-📈 Progreso: 150/200 XP
-```
-
-### 3️⃣ **¡Sube de Nivel!**
-```
-🎊 ¡NIVEL UP!
-⬆️ Nivel 2 alcanzado
-🎯 Siguiente nivel: 200 XP
-```
-
-### 4️⃣ **Mantén tu Racha**
-```
-🔥 Racha actual: 7 días
-📅 Quest diaria: 3/3 (+50 XP bonus)
-```
-
----
-
-## 📊 Sistema de Recompensas
-
-| Dificultad | Estrellas | XP | Cuándo usar |
-|------------|-----------|-----|-------------|
-| **Fácil** | ⭐ | +10 XP | 5-15 minutos |
-| **Media** | ⭐⭐ | +25 XP | 30-60 minutos |
-| **Difícil** | ⭐⭐⭐ | +50 XP | 1-3 horas |
-| **Épica** | ⭐⭐⭐⭐ | +100 XP | 3+ horas |
-
-### 🎁 Bonus Especiales
-
-- 🌟 **Quest Diaria**: Completa 3 tareas → **+50 XP**
-- 🔥 **Racha de 7 días**: Desbloquea logro especial
-- 📈 **Nivel 10**: Conviértete en maestro de tareas
-
----
-
-## 🏗️ Arquitectura (Para Desarrolladores)
-
-### 🎨 **Diseño Modular**
-
-El proyecto está **súper organizado** con **28 archivos** especializados:
-
-```
-TaskQuest/
-├── 📂 vistas/           → 4 páginas HTML
-├── 📂 estilos/          → 7 archivos CSS modulares
-├── 📂 js/
-│   ├── modelos/        → 3 clases de datos
-│   ├── controladores/  → 3 gestores de lógica
-│   ├── componentes/    → 7 componentes UI
-│   └── utilidades/     → 5 helpers
-└── 📄 principal.js      → Orquestador
-```
-
-**[📖 Ver estructura completa →](ESTRUCTURA.md)**
-
-### 🔧 **Stack Tecnológico**
-
-```javascript
-const stack = {
-  frontend: ['JavaScript ES6+', 'TailwindCSS v4', 'HTML5'],
-  animaciones: ['Anime.js'],
-  almacenamiento: ['LocalStorage API'],
-  arquitectura: ['MVC', 'Observer Pattern', 'Modular Design'],
-  estilo: ['Utility-First CSS', 'Component-Based']
-};
-```
-
-### 📦 **Scripts Disponibles**
-
-```bash
-npm run dev    # 🔥 Modo desarrollo (watch)
-npm run build  # 📦 Compilar para producción
-```
-
----
-
-## 🎨 Capturas de Pantalla
+## 🎬 Vista rápida
 
 <div align="center">
-
-### 🏠 **Pantalla Principal**
-La interfaz donde la magia sucede
-
-### 📊 **Estadísticas**
-Todas tus métricas en un solo lugar
-
-### ⚙️ **Configuración**
-Controla tus datos y progreso
-
-### ❓ **Tutorial Interactivo**
-Aprende mientras juegas
-
+  <img src="docs/screenshots/login.png" width="48%" alt="Pantalla de acceso de TaskQuest" />
+  <img src="docs/screenshots/misiones.png" width="48%" alt="Pantalla de misiones con tres tareas de ejemplo y el panel del personaje" />
 </div>
 
----
+## ✨ Características
 
-## 🎯 Casos de Uso
+| Característica | Detalle |
+| --- | --- |
+| Misiones | Añadir, completar (y desmarcar) y borrar tareas con 4 dificultades. |
+| XP y créditos | Fácil 10, Media 25, Difícil 50, Épica 100 XP; los créditos son la mitad del XP. Desmarcar una tarea revierte ambos. |
+| Niveles | Al llegar a `nivel × 100` XP subes de nivel; empiezas con 50 créditos y 100 de salud. |
+| Pomodoro ("Focus") | Temporizador de 25 min de trabajo / 5 de descanso; al terminar da 20 créditos (`Temporizador.tsx`). |
+| Tienda e inventario | Compra recompensas con créditos y consúmelas desde el inventario. |
+| Logros | 4 logros calculados del estado: nivel 2, nivel 10, 5 misiones completadas, 200 créditos. |
+| Datos | Exportar/importar el guardado y borrado total desde "Opciones". |
+| Acceso | Registro/login contra un servidor Express + MySQL opcional; si el servidor no responde, entra en modo invitado sin contraseña real. |
 
-### 👨‍💻 **Para Desarrolladores**
-```javascript
-// Ideal para sprint planning
-const tarea = {
-  texto: "Implementar autenticación OAuth",
-  dificultad: "epica",  // +100 XP
-  categoria: "trabajo"
-};
+## 🏗️ Arquitectura
+
+```mermaid
+flowchart TD
+    I["index.html"] --> M["src/main.tsx"]
+    M --> A["src/Aplicacion.tsx"]
+    A --> AU["componentes/Auth.tsx"]
+    A --> C["componentes: ListaMisiones, Temporizador, Tienda, Inventario, Logros, Opciones, PanelPersonaje"]
+    C --> S["store/useStore.ts (Zustand + persist)"]
+    AU -->|"POST /api/login, /api/register"| B["server/index.js (Express, puerto 3001)"]
+    B --> DB[("MySQL taskquest_db, tabla users")]
+    S --> LS[("localStorage: taskquest-modern-storage")]
 ```
 
-### 📚 **Para Estudiantes**
-```javascript
-// Organiza tu estudio
-const tareas = [
-  { texto: "Leer capítulo 3", dificultad: "media" },
-  { texto: "Hacer ejercicios", dificultad: "dificil" },
-  { texto: "Repasar apuntes", dificultad: "facil" }
-];
+## 🚀 Inicio rápido
+
+| Requisito | Detalle |
+| --- | --- |
+| Node.js | Verificado con v24; no hay `engines` declarado |
+| MySQL | Solo para el registro/login real (usuario `root` sin contraseña, valores fijos en `server/index.js`) |
+
+1. Clona e instala (no hay `package-lock.json`, así que `npm ci` no funciona):
+   ```bash
+   git clone https://github.com/Luiss2080/TaskQuest.git
+   cd TaskQuest
+   npm install
+   ```
+2. Arranca solo el frontend:
+   ```bash
+   npm run dev
+   ```
+   Abre la URL que imprime Vite. En la pantalla de acceso escribe cualquier usuario y contraseña: sin servidor se muestra "Modo Offline" y entras como invitado tras ~1,5 s.
+3. Opcional, con backend y MySQL encendido: `npm run dev:all` (Express en `3001` + Vite).
+
+<details>
+<summary>Estructura de carpetas</summary>
+
+```text
+src/                 App activa (React + TS): Aplicacion.tsx, componentes/, store/useStore.ts
+src/components/,
+src/App.tsx          Copia en inglés de la UI, sin usar (main.tsx importa Aplicacion.tsx)
+server/index.js      API de registro/login (Express + MySQL + bcrypt)
+js/, estilos/, css/  Versión anterior en JavaScript puro; sin uso desde index.html
+sw.js, manifest.json Herencia de la versión anterior (apuntan a rutas que ya no existen)
+scripts/start.bat    Lanza npm run dev:all en Windows
 ```
 
-### 🏋️ **Para Fitness**
-```javascript
-// Mantén tu rutina
-const workout = {
-  texto: "30 min cardio",
-  dificultad: "media",
-  categoria: "salud"  // ❤️
-};
-```
+</details>
 
----
+## 🧪 Pruebas
 
-## 🚀 Características Futuras
+No hay tests automatizados ni CI. Comprobación manual del 18/09/2026: la app arranca con Vite, se puede entrar como invitado, crear misiones y verlas en el panel (las capturas de arriba salen de ahí).
 
-- [ ] 🎵 Sonidos de videojuego
-- [ ] 🌙 Modo oscuro/claro
-- [ ] 👤 Sistema de avatares
-- [ ] 🏆 Más logros desbloqueables
-- [ ] 📱 PWA (App móvil)
-- [ ] ⏱️ Timer Pomodoro integrado
-- [ ] 🌐 Sincronización en la nube
-- [ ] 🤝 Modo multijugador
+## 🔒 Seguridad
 
----
+- Las contraseñas del servidor se guardan con `bcryptjs` (10 rondas) y las consultas SQL usan parámetros.
+- Pero: no hay tokens ni sesiones en el servidor; el "login" solo guarda el nombre en `localStorage`, y el modo invitado permite entrar sin contraseña. CORS está abierto (`cors()` sin restricciones) y las credenciales de MySQL están escritas en el código. Solo apto para desarrollo local.
 
-## 🤝 Contribuir
+## 🚧 Lo que todavía no existe
 
-¡Las contribuciones son bienvenidas! 
+- `npm run build` **falla** hoy: `tsc` reporta 4 errores (imports sin usar en `Auth.tsx` y `SettingsPanel.tsx`, y el tipo de `setInterval` en `Temporizador.tsx`/`Pomodoro.tsx`).
+- El progreso no se sincroniza con el servidor; solo el usuario se guarda en MySQL.
+- El panel del personaje muestra el nombre fijo "Player_One", no el usuario que entró; la barra de búsqueda de la cabecera no hace nada.
+- Las recompensas de la tienda se guardan en estado local del componente y no persisten al recargar.
+- No hay categorías de tareas, rachas diarias ni quest diaria; esas funciones solo existen en la versión anterior sin uso.
+- No hay archivo LICENSE (el README anterior decía ISC sin respaldo): todos los derechos reservados por defecto.
 
-1. Fork el proyecto
-2. Crea tu rama (`git checkout -b feature/nuevaCaracteristica`)
-3. Commit tus cambios (`git commit -m 'Añadir nueva característica'`)
-4. Push a la rama (`git push origin feature/nuevaCaracteristica`)
-5. Abre un Pull Request
+## 📄 Licencia
 
----
+Sin licencia definida: todos los derechos reservados por defecto.
 
-## 📝 Licencia
-
-Este proyecto está bajo la Licencia ISC.
-
----
-
-## 💖 Agradecimientos
-
-- **TailwindCSS** - Por hacer el CSS divertido
-- **Anime.js** - Por las animaciones épicas
-- **Font Awesome** - Por los iconos increíbles
-- **Google Fonts** - Por la tipografía perfecta
-
----
-
-<div align="center">
-
-### ⭐ ¿Te gusta TaskQuest?
-
-**¡Dale una estrella al repo!** ⭐
-
-**Hecho con 💜 y mucho ☕**
-
-[🔝 Volver arriba](#-taskquest)
-
-</div>
+<div align="center"><sub>Hecho por Luiss2080 · TaskQuest</sub></div>
